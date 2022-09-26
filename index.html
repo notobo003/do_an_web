@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link rel="stylesheet" href="./css/grid.css" /> -->
+    <link rel="stylesheet" href="./css/modal.css" />
+    <link rel="stylesheet" href="./css/pagination.css" />
+    <link rel="stylesheet" href="./css/global.css" />
+    <!-- <link rel="stylesheet" href="./css/login.css" /> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__logo">
+        <img src="./Images/bookstore.png" />
+      </div>
+      <div class="header__search">
+        <input
+          class="header__search__input"
+          type="text"
+          placeholder="Tìm sản phẩm mong muốn ..."
+        />
+        <span class="header__search__btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </span>
+      </div>
+      <div class="header__right">
+        <div class="cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <p class="cart__counter">0</p>
+        </div>
+        <div class="header__login">
+          <i class="fa-regular fa-user"></i>
+        </div>
+      </div>
+      <div class="menu__nav">
+        <ul class="menu__nav__list">
+          <li class="item">Top Bán Chạy</li>
+          <li class="item">
+            Nhiều Thể Loại
+            <ul class="menu__nav_category">
+              <li>Sách Nấu Ăn</li>
+              <li>Sách Nấu Ăn</li>
+              <li>Sách Nấu Ăn</li>
+              <li>Sách Nấu Ăn</li>
+              <li>Sách Nấu Ăn</li>
+              <li>Sách Nấu Ăn</li>
+              <li>Sách Nấu Ăn</li>
+            </ul>
+          </li>
+          <li class="item">Nhà Phát Hành</li>
+          <li class="item">Khuyên Đọc</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="banner">
+      <div class="banner__primary">
+        <img src="./Images/banner/1.jpg" alt="" />
+      </div>
+      <div class="banner__thumbnail">
+        <img src="./Images/banner/thumnail_1.jpg" alt="" />
+        <img src="./Images/banner/thumnail_1.jpg" alt="" />
+        <img src="./Images/banner/thumnail_1.jpg" alt="" />
+      </div>
+    </div>
+
+    <div class="toolbar__search">
+      <div class="toolbar__search-left">
+        <span class="toolbar__search-title">Sắp xếp theo</span>
+        <button class="toolbar__search-btn">Bán Chạy</button>
+        <div class="price-range">
+          <input placeholder="10.000đ" type="number" name="" />
+          <span></span>
+          <input placeholder="1.000.000đ" type="number" name="" />
+        </div>
+
+        <div class="toolbar__search-range">
+          <label for="">Giá</label>
+          <select name="" id="">
+            <option value="">Thấp đến Cao</option>
+            <option value="">Cao đến Thấp</option>
+          </select>
+          <!-- <div class="toolbar__search-range-title">Giá</div>
+          <div class="toolbar__search-range-sort">
+            <span >Giá: Thấp đến Cao</span>
+            <span>Giá: Cao đến Thấp</span>
+          </div> -->
+        </div>
+      </div>
+
+      <button class="toolbar__search-icon">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </div>
+
+    <div class="container-content"></div>
+    <div class="pagenumbers" id="pagination"></div>
+
+    <div id="modal-container"></div>
+
+    <div class="list" id="list"></div>
+
+    <!--  <div class="login__form">
+      <div class="container__form">
+        <div class="form-header">
+          <div class="btn-prev">
+            <i class="fa-solid fa-caret-left"></i>
+            Trở về
+          </div>
+          <p class="btn-close">
+            <i class="fa-solid fa-xmark"></i>
+          </p>
+        </div>
+        <div class="login__header__title">ĐĂNG NHẬP</div>
+        <div class="form__body">
+          <div class="form__control input-username-login">
+            <input class="input" type="text" placeholder="Tên người dùng" />
+            <small>Error message</small>
+          </div>
+          <div class="form__control input-email-login">
+            <input class="input" type="text" placeholder="Email của bạn" />
+            <small>Error message</small>
+          </div>
+          <div class="form__control error input-password-login">
+            <input class="input" type="password" placeholder="Mật khẩu" />
+            <small>Error message</small>
+          </div>
+
+          <div class="form__control input-password-replace-login">
+            <input
+              class="input"
+              type="password"
+              placeholder="Nhập lại Mật khẩu"
+            />
+            <small>Error message</small>
+          </div>
+          <button class="btn btn-success btn-login">Đăng Nhập</button>
+          <div class="form__footer">
+            <p class="form__register">Đăng ký tài khoản mới</p>
+            <p>Quên mật khẩu</p>
+          </div>
+        </div>
+      </div>
+      <div class="form__layout"></div>
+    </div> -->
+    <div>
+      <div class="form_overlay"></div>
+
+      <div class="login_form_content">
+        <p class="login_form_btn_close">
+          <i class="fa-solid fa-xmark"></i>
+        </p>
+        <div class="login_form_header">
+          <span class="login_form_header-login">Đăng nhập</span>
+          <span class="login_form_header-register">Đăng ký</span>
+        </div>
+        <div class="login_content">
+          <form action="">
+            <div class="form_group">
+              <label for="">Số điện thoại/Email</label>
+              <input
+                class="error"
+                type="text"
+                placeholder="Nhập số điện thoại hoặc email"
+              />
+              <span class="form_message"></span>
+            </div>
+            <div class="form_group">
+              <label for="">Mật khẩu</label>
+              <input
+                class="success"
+                type="password"
+                placeholder="Nhập mật khẩu"
+              />
+              <span class="form_message"></span>
+              <span class="form_input_showtext">Hiện</span>
+            </div>
+            <span class="form_forget_password">Quên mật khẩu?</span>
+            <button type="submit">Đăng nhập</button>
+          </form>
+        </div>
+        <div class="register_content">
+          <form action="">
+            <div class="form_group">
+              <label for="">Số điện thoại</label>
+              <input type="number" placeholder="Nhập số điện thoại" />
+              <span class="form_message"></span>
+            </div>
+            <div class="form_group">
+              <label for="">Mật khẩu</label>
+              <input type="password" placeholder="Nhập mật khẩu" />
+              <span class="form_message"></span>
+              <span class="form_input_showtext">Hiện</span>
+
+              <!-- <span class="form_input_showtext">Ẩn</span> -->
+            </div>
+            <div class="form_group">
+              <label for="">Nhập Lại Mật khẩu</label>
+              <input
+                class="input_pass_2"
+                type="password"
+                placeholder="Nhập lại mật khẩu"
+              />
+              <span class="form_message"></span>
+              <span class="form_input_showtext">Hiện</span>
+
+              <!-- <span class="form_input_showtext">Ẩn</span> -->
+            </div>
+            <button>Đăng ký</button>
+          </form>
+        </div>
+      </div>
+      <script>
+        const iconForm = document.querySelector(".header__login");
+        const form = document.querySelector(".login_form_content");
+        const login = document.querySelector(".login_form_header-login");
+        const register = document.querySelector(".login_form_header-register");
+        const registerContent = document.querySelector(".register_content");
+        const loginContent = document.querySelector(".login_content");
+        const headerLine = document.querySelector(".login_form_header span");
+        const formBtnClose = document.querySelector(".login_form_btn_close");
+        const showTexts = document.querySelectorAll(".form_input_showtext");
+        const formOverlay = document.querySelector(".form_overlay");
+        const inputPassAll = form.querySelectorAll("input[type='password']");
+        console.log(inputPassAll);
+
+        registerContent.addEventListener("submit", (e) => {
+          e.preventDefault();
+          console.log(1);
+          checkInputs();
+        });
+        function checkInputs() {
+          const phone = registerContent.querySelector("input[type='number']");
+          const phoneValue = phone.value.trim();
+
+          const pass = registerContent.querySelector("input[type='password']");
+          const passValue = pass.value.trim();
+
+          const pass2 = registerContent.querySelector(".input_pass_2");
+          const pass2Value = pass2.value.trim();
+
+          console.log(phoneValue, passValue, pass2Value);
+          if (phoneValue === "") {
+            setErrorMessage(phone, "fadfafdasfasfs");
+          } else {
+            setSuccessMessage(phone);
+          }
+          if (passValue === "") {
+            setErrorMessage(pass, "fadfafdasfasfs");
+          } else {
+            setSuccessMessage(pass);
+          }
+          if (pass2Value === "") {
+            setErrorMessage(pass2, "fadfafdasfasfs");
+          } else {
+            setSuccessMessage(pass2);
+          }
+        }
+        function isEmail(email) {
+          return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+            email
+          );
+        }
+        function setErrorMessage(input, message) {
+          console.log(input.nextElementSibling);
+          input.classList.add("error");
+          input.nextElementSibling.innerText = message;
+          input.nextElementSibling.classList.add("show");
+        }
+        function setSuccessMessage(input) {
+          input.classList.add("success");
+        }
+
+        showTexts.forEach((item) => {
+          item.addEventListener("click", () => {
+            if (item.parentElement.children[1].type === "password") {
+              item.parentElement.children[1].type = "text";
+            } else {
+              item.parentElement.children[1].type = "password";
+            }
+            if (item.innerHTML === "Hiện") {
+              item.innerHTML = "Ẩn";
+            } else {
+              item.innerHTML = "Hiện";
+            }
+          });
+        });
+        loginContent.classList.add("show");
+        login.addEventListener("click", () => {
+          loginContent.classList.add("show");
+          registerContent.classList.remove("show");
+        });
+        register.addEventListener("click", () => {
+          registerContent.classList.add("show");
+          loginContent.classList.remove("show");
+        });
+        iconForm.addEventListener("click", () => {
+          form.classList.toggle("show");
+          formOverlay.classList.toggle("show");
+        });
+        formBtnClose.addEventListener("click", () => {
+          iconForm.click();
+        });
+        formOverlay.addEventListener("click", () => {
+          iconForm.click();
+        });
+      </script>
+    </div>
+    <div class="list__cart">
+      <div class="cart__header">
+        <p class="cart__btnClose">
+          <i class="fa-solid fa-xmark"></i>
+        </p>
+        <div class="cart__heading">Giỏ Hàng</div>
+      </div>
+      <div class="cart__noCart">
+        Giỏ hàng của bạn đang trống
+        <img
+          src="https://bengo.vn/static/version1650994791/frontend/MageBig/martfury_layout01/vi_VN/images/empty-cart.svg"
+          alt=""
+        />
+      </div>
+      <div class="cart__items"></div>
+    </div>
+    <div class="cart__overlay"></div>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer__item footer__info">
+          <h3>GIỚI THIỆU</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto,
+            ipsam.
+          </p>
+          <div class="footer__info__icon">
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-tiktok"></i>
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+        </div>
+
+        <div class="footer__item footer__contact">
+          <h3>LIÊN HỆ VỚI CHÚNG TÔI</h3>
+          <div class="footer__contact-address">
+            <p>
+              <i class="fa-solid fa-location-dot"></i> Địa chỉ: phường Liễu
+              Giai, Hà Nội, Vietnam
+            </p>
+          </div>
+          <div class="footer__contact-hotline">
+            <p><i class="fa-solid fa-phone"></i> Hotline: 1900 6750</p>
+          </div>
+        </div>
+
+        <div class="footer__item footer__numbers">
+          <h3>LẬP TRÌNH WEB VÀ ỨNG DỤNG</h3>
+          <p>Nguyễn Văn A</p>
+          <p>Nguyễn Văn A</p>
+          <p>Nguyễn Văn A</p>
+          <p>Nguyễn Văn A</p>
+        </div>
+
+        <div class="footer__item footer__subs">
+          <h3>ĐÓNG GÓP Ý KIẾN</h3>
+          <p>
+            Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến đóng góp
+            từ khách hàng để có thể nâng cấp trải nghiệm dịch vụ và sản phẩm tốt
+            hơn nữa.
+          </p>
+          <input type="text" placeholder="Email của bạn" />
+          <button>Gửi Ý Kiến</button>
+        </div>
+      </div>
+      <div class="footer__copyright">© Bản quyền thuộc về Team</div>
+    </footer>
+  </body>
+
+  <!-- <script src="./js/renderData.js" defer></script> -->
+  <script src="./js/pagination.js"></script>
+  <script src="./js/cart.js"></script>
+  <!-- <script src="./js/login_register.js" defer></script> -->
+</html>
