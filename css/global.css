@@ -191,6 +191,41 @@ header {
   margin: 10px;
   font-size: 25px;
 }
+.header__login_title {
+  display: inline-block;
+  font-size: 12px;
+}
+
+.header__right .header__login_avatar {
+  width: 34px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  text-align: center;
+  margin-top: 10px;
+}
+.header__login {
+  position: relative;
+}
+.header__login:hover .header__login_user_menu {
+  display: inline-block;
+}
+.header__login_user_menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  min-width: 150px;
+}
+.header__login_user_menu li {
+  padding: 6px 10px;
+}
+.header__login_user_menu li:hover {
+  background: rgb(165, 156, 156);
+  color: green;
+} 
+
 .cart {
   position: relative;
 }
@@ -740,8 +775,9 @@ header {
   border-radius: 10px;
   outline: none;
   border: none;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
+  background: #ccc;
 }
 .login_form_content input {
   font-size: inherit;
