@@ -4,6 +4,7 @@ const books = [
     author: "",
     title:
       "Muốn Thành Công Nói Không Với Trì Hoãn – 21 Nguyên Tắc Vàng Đập Tan Sự Trì Hoãn",
+    shortName: "muon thanh cong noi khong voi tri hoan",
     srcImg: [
       "./Images/books/1.jpg",
       "./Images/books/1_1.jpg",
@@ -11,7 +12,7 @@ const books = [
       "./Images/books/1_3.jpg",
     ],
     price: 85200,
-    currentPrice: 50000,
+    currentPrice: 10000,
     description: "",
     quantity: 100,
   },
@@ -19,6 +20,7 @@ const books = [
     id: 2,
     author: "",
     title: "Thiên Tài Bên Trái, Kẻ Điên Bên Phải faf fasd(Tái Bản)",
+    shortName: "thien tai bai trai ke dien ben phai",
     srcImg: [
       "./Images/books/2.jpg",
       "./Images/books/2.jpg",
@@ -26,7 +28,7 @@ const books = [
       "./Images/books/4.jpg",
     ],
     price: 85200,
-    currentPrice: 50000,
+    currentPrice: 20000,
     quantity: 100,
   },
   {
@@ -34,28 +36,32 @@ const books = [
     author: "Damon Zahariades",
     title:
       "Muốn Thành Công Nói Không Với Trì Hoãn – 21 Nguyên Tắc Vàng Đập Tan Sự Trì Hoãn",
+    shortName: "muon thanh cong noi khong voi tri hoan",
     srcImg: [
       "./Images/books/3.jpg",
       "./Images/books/4.jpg",
       "./Images/books/4.jpg",
     ],
     price: 85200,
-    currentPrice: 50000,
+    currentPrice: 30000,
     quantity: 100,
   },
   {
     id: 4,
     author: "Matthew Pollard, Derek Lewis",
     title: "Nghệ Thuật Bán Hàng Của Người Hướng Nội",
+    shortName: "nghe thuat ban hang cua nguoi huong noi",
+
     srcImg: ["./Images/books/4.jpg"],
     price: 85200,
-    currentPrice: 50000,
+    currentPrice: 40000,
   },
   {
     id: 5,
     author: "Stephen R. Covey",
     title:
       "7 Thói Quen Hiệu Quả (The 7 Habits Of Highly Effective People) (Tái Bản)",
+    shortName: "7(bay) thoi quen hieu qua",
     srcImg: ["./Images/books/5.jpg"],
     price: 85200,
     currentPrice: 50000,
@@ -64,6 +70,7 @@ const books = [
     id: 6,
     author: "Trác Nhã",
     title: "Khéo Ăn Nói Sẽ Có Được Thiên Hạ ( Tái Bản )",
+    shortName: "kheo an noi se co duoc thien ha",
     srcImg: ["./Images/books/6.jpg"],
     price: 85200,
     currentPrice: 50000,
@@ -72,6 +79,7 @@ const books = [
     id: 7,
     author: "Adam Khoo",
     title: "Tôi Tài Giỏi - Bạn Cũng Thế (Tái Bản 2020)",
+    shortName: "toi tai gioi ban cung the",
     srcImg: ["./Images/books/7.jpg"],
     price: 85200,
     currentPrice: 50000,
@@ -81,6 +89,7 @@ const books = [
     id: 8,
     author: "Gino Wickman, Mark C. Winters",
     title: "Người Có Tầm Nhìn, Kẻ Biết Hành Động",
+    shortName: "nguoi co tam nhin ke biet hanh dong",
     srcImg: ["./Images/books/8.jpg"],
     price: 85200,
     currentPrice: 50000,
@@ -89,6 +98,7 @@ const books = [
     id: 9,
     author: "Nancy Duarte",
     title: "HBR Guide To – Trình Bày Thuyết Phục (Tái Bản 2018)",
+    shortName: "trinh bai thuyet phuc",
     srcImg: ["./Images/books/9.jpg"],
     price: 85200,
     currentPrice: 50000,
@@ -97,6 +107,7 @@ const books = [
     id: 10,
     author: "Prakash Iyer",
     title: "Thói Quen Của Kẻ Thắng (Tái Bản 2018)",
+    shortName: "thoi quen cua ke thang",
     srcImg: ["./Images/books/10.jpg"],
     price: 85200,
     currentPrice: 50000,
@@ -105,6 +116,7 @@ const books = [
     id: 11,
     author: "Zoe McKey",
     title: "Tư Duy Phản Biện",
+    shortName: "tu duy phan bien",
     srcImg: ["./Images/books/11.jpg"],
     price: 85200,
     currentPrice: 50000,
@@ -113,6 +125,7 @@ const books = [
     id: 12,
     author: "Scott H.Young",
     title: "Rèn Luyện Kỹ Năng Phát Triển Bản Thân",
+    shortName: "ren luyen ky nang phap trien ban than",
     srcImg: ["./Images/books/12.jpg"],
     price: 85200,
     currentPrice: 50000,
@@ -121,6 +134,7 @@ const books = [
     id: 13,
     author: "nhieu tac gia",
     title: "Thao túng tâm lý",
+    shortName: "thao tung tam ly",
     srcImg: ["./Images/books/13.jpg"],
     price: 85200,
     currentPrice: 50000,
@@ -130,6 +144,7 @@ const books = [
     id: 14,
     author: "Carol S. Dweck",
     title: "Tâm Lý Học Thành Công",
+    shortName: "tam ly hoc thanh cong",
     srcImg: ["./Images/books/14.jpg"],
     price: 85200,
     currentPrice: 50000,
@@ -138,6 +153,7 @@ const books = [
     id: 15,
     author: "Eran Katz",
     title: "Trí Tuệ Do Thái (Tái Bản 2018)",
+    shortName: "tri tue do thai",
     srcImg: ["./Images/books/15.jpg"],
     price: 85200,
     currentPrice: 50000,
@@ -146,6 +162,7 @@ const books = [
     id: 16,
     author: "Tạ Quốc Kế",
     title: "Điềm Tĩnh Và Nóng Giận",
+    shortName: "diem tinh va nong gian",
     srcImg: ["./Images/books/16.jpg", "./Images/books/1.jpg"],
     price: 85200,
     currentPrice: 50000,
@@ -156,10 +173,11 @@ const container_content = document.querySelector(".container-content");
 const pagination_element = document.getElementById("pagination");
 
 let current_page = 1;
-let rows = 5;
+let rows = 10;
 
 function DisplayList(items, rows_per_page, page) {
   page--;
+  console.log(rows_per_page, page);
 
   let start = rows_per_page * page;
   let end = start + rows_per_page;
@@ -187,16 +205,15 @@ function renderData(dataArr) {
 }
 function SetupPagination(items, wrapper, rows_per_page) {
   wrapper.innerHTML = "";
-
   let page_count = Math.ceil(items.length / rows_per_page);
   for (let i = 1; i < page_count + 1; i++) {
-    let btn = PaginationButton(i, items);
-    console.log(btn);
+    let btn = PaginationButton(i, items, rows_per_page);
+    console.log(111111);
     wrapper.appendChild(btn);
   }
 }
 /* ======================== */
-function PaginationButton(page, items) {
+function PaginationButton(page, items, rowss) {
   let button = document.createElement("button");
   button.innerText = page;
 
@@ -204,8 +221,7 @@ function PaginationButton(page, items) {
 
   button.addEventListener("click", function () {
     current_page = page;
-
-    DisplayList(items, rows, current_page);
+    DisplayList(items, rowss, current_page);
 
     let current_btn = document.querySelector(".pagenumbers button.active");
     current_btn.classList.remove("active");
@@ -217,9 +233,8 @@ function PaginationButton(page, items) {
 }
 
 /* goi ham */
-DisplayList(books, rows, current_page);
-
-SetupPagination(books, pagination_element, rows);
+/* DisplayList(books, rows, current_page);
+SetupPagination(books, pagination_element, rows); */
 
 //
 function changeImg(srcImg) {
@@ -280,12 +295,12 @@ function showItemDetail(id) {
       overlay.classList.add("show");
       modal.classList.add("show");
       // body.classList.add("show");
-      modal.style.top = 15 + pageYOffset + "px";
+      modal.style.top = 15 + window.pageYOffset + "px";
       window.addEventListener("scroll", () => {
         setTopModal();
       });
       function setTopModal() {
-        modal.style.top = 20 + pageYOffset + "px";
+        modal.style.top = 20 + window.pageYOffset + "px";
       }
 
       var btn_close = document.querySelector(".btn-close");
@@ -304,7 +319,9 @@ function showItemDetail(id) {
       const btnDown = document.querySelector(".cart__btn__down");
       const inputQuantity = document.querySelector(".cart__input__quantity");
       const btnUp = document.querySelector(".cart__btn__up");
-      console.log(btnDown, btnUp);
+      quantityCounter(btnDown, inputQuantity, btnUp, item);
+      /* console.log(btnDown, btnUp);
+
       var quantityCount = 1;
       btnDown.addEventListener("click", () => {
         inputQuantity.value--;
@@ -317,7 +334,7 @@ function showItemDetail(id) {
       btnUp.addEventListener("click", () => {
         inputQuantity.value++;
         quantityCount++;
-      });
+      }); */
     }
   });
 
@@ -357,6 +374,8 @@ function numberWithCommas(x) {
 function numbertoVND(x) {
   return numberWithCommas(x) + " đ";
 }
+
+/* ============search range */
 
 const searchData = [];
 const inputSearch = document.querySelector(".header__search__input");

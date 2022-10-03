@@ -17,18 +17,30 @@
     <link rel="stylesheet" href="./css/modal.css" />
     <link rel="stylesheet" href="./css/pagination.css" />
     <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
     <!-- <link rel="stylesheet" href="./css/login.css" /> -->
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <title>Document</title>
+    <title>Tri Thức</title>
   </head>
   <body>
     <header class="header">
       <div class="header__logo">
-        <img src="./Images/bookstore.png" />
+        <img src="./Images/fahasa.png" />
       </div>
+      <div class="header__menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <script>
+        const menu = document.querySelector(".header__menu");
+        menu.addEventListener("click", () => {
+          menu.classList.toggle("active");
+        });
+      </script>
       <div class="header__search">
         <input
           class="header__search__input"
@@ -41,154 +53,324 @@
       </div>
       <div class="header__right">
         <div class="cart">
-          <i class="fa-solid fa-bag-shopping"></i>
+          <i class="fa-sharp fa-solid fa-cart-shopping"></i>
+          <!-- <i class="fa-solid fa-bag-shopping"></i> -->
           <p class="cart__counter">0</p>
+          <span>Giỏ Hàng</span>
         </div>
+
         <div class="header__login">
-          <i class="fa-regular fa-user header_icon_login"></i>
-          <img
-            class="header__login_avatar"
-            src="./Images/avatar_users/2.jpg"
-            style="display: none"
-          />
-          <ul class="header__login_user_menu">
-            <li>Thông tin của tôi</li>
-            <li>Đơn mua</li>
-            <li>Đăng Xuất</li>
-          </ul>
-          <!-- <div class="header__login_title">
-            <span>Đăng nhập</span>
-            <span>Đăng ký</span>
-          </div> -->
-        </div>
-      </div>
-      <div class="menu__nav">
-        <ul class="menu__nav__list">
-          <li class="item">Top Bán Chạy</li>
-          <li class="item">
-            Nhiều Thể Loại
-            <ul class="menu__nav_category">
-              <li>Sách Nấu Ăn</li>
-              <li>Sách Nấu Ăn</li>
-              <li>Sách Nấu Ăn</li>
-              <li>Sách Nấu Ăn</li>
-              <li>Sách Nấu Ăn</li>
-              <li>Sách Nấu Ăn</li>
-              <li>Sách Nấu Ăn</li>
+          <div class="header__login-img">
+            <i class="fa-regular fa-user header__login-icon show"></i>
+            <img
+              class="header__login_avatar"
+              src="./Images/avatar_users/2.jpg"
+            />
+            <ul class="header__login-menu">
+              <li><button>Đăng Nhập</button></li>
+              <li><button>Đăng Ký</button></li>
             </ul>
-          </li>
-          <li class="item">Nhà Phát Hành</li>
-          <li class="item">Khuyên Đọc</li>
-        </ul>
+            <ul class="header__login-user-menu">
+              <li>Thông tin của tôi</li>
+              <li>Đơn mua</li>
+              <li>Đăng Xuất</li>
+            </ul>
+          </div>
+
+          <span>Tài Khoản</span>
+        </div>
       </div>
     </header>
 
     <div class="banner">
       <div class="banner__primary">
-        <img src="./Images/banner/1.jpg" alt="" />
-      </div>
-      <div class="banner__thumbnail">
-        <img src="./Images/banner/thumnail_1.jpg" alt="" />
-        <img src="./Images/banner/thumnail_1.jpg" alt="" />
-        <img src="./Images/banner/thumnail_1.jpg" alt="" />
+        <div class="container-tasbar">
+          <ul class="container-tasbar__list">
+            <span class="container-tasbar__list-title"
+              ><i class="fa-solid fa-bars"></i>DANH MỤC SẢN PHẨM</span
+            >
+            <li class="container-tasbar__item">
+              <span
+                class="container-tasbar__item-text container-tasbar__item-text--bold"
+                >Nổi Bật</span
+              >
+              <i
+                class="container-tasbar__item-icon fa-solid fa-angle-right"
+              ></i>
+              <ul class="container-tasbar__subnav">
+                <li class="container-tasbar__subnav-item">Sách bán chạy</li>
+                <li class="container-tasbar__subnav-item">Sách mới</li>
+                <li class="container-tasbar__subnav-item">Sắp phát hành</li>
+                <li class="container-tasbar__subnav-item">Sách giảm giá</li>
+              </ul>
+            </li>
+            <li class="container-tasbar__item">
+              <span class="container-tasbar__item-text"
+                >Truyện Tranh - Comic</span
+              >
+            </li>
+            <li class="container-tasbar__item">
+              <span class="container-tasbar__item-text">
+                Văn Học Nước Ngoài
+              </span>
+            </li>
+            <li class="container-tasbar__item">
+              <span
+                class="container-tasbar__item-text container-tasbar__item-text--bold"
+              >
+                Sách Văn Học</span
+              >
+              <i
+                class="container-tasbar__item-icon fa-solid fa-angle-right"
+              ></i>
+              <ul class="container-tasbar__subnav">
+                <li class="container-tasbar__subnav-item">
+                  Sách văn học trong nước
+                </li>
+                <li class="container-tasbar__subnav-item">Bách hợp</li>
+                <li class="container-tasbar__subnav-item">Ngôn tình</li>
+                <li class="container-tasbar__subnav-item">Sách đam mỹ</li>
+              </ul>
+            </li>
+            <li class="container-tasbar__item">
+              <span class="container-tasbar__item-text">Truyện Tranh BL</span>
+            </li>
+            <li class="container-tasbar__item">
+              <span class="container-tasbar__item-text">Sách Kĩ Năng Sống</span>
+            </li>
+            <li class="container-tasbar__item">
+              <span class="container-tasbar__item-text"> Sách Thiếu Nhi</span>
+            </li>
+            <li class="container-tasbar__item">
+              <span class="container-tasbar__item-text">Light Novel</span>
+            </li>
+            <li class="container-tasbar__item">
+              <span class="container-tasbar__item-text"
+                >Văn Phòng Phẩm - Quà Tặng</span
+              >
+            </li>
+            <li class="container-tasbar__item">
+              <span
+                class="container-tasbar__item-text container-tasbar__item-text--bold"
+                >Công Ty Phát Hành</span
+              >
+              <i
+                class="container-tasbar__item-icon fa-solid fa-angle-right"
+              ></i>
+              <ul
+                class="container-tasbar__subnav container-tasbar__subnav-large"
+              >
+                <li class="container-tasbar__subnav-item">
+                  Công ty cổ phần zgroup
+                </li>
+                <li class="container-tasbar__subnav-item">Amak</li>
+                <li class="container-tasbar__subnav-item">Skybooks</li>
+                <li class="container-tasbar__subnav-item">Chibooks</li>
+                <li class="container-tasbar__subnav-item">Pavicobooks</li>
+                <li class="container-tasbar__subnav-item">IPM</li>
+                <li class="container-tasbar__subnav-item">Nhã Nam</li>
+                <li class="container-tasbar__subnav-item">Windbooks</li>
+                <li class="container-tasbar__subnav-item">Việt Thư</li>
+                <li class="container-tasbar__subnav-item">Wing Books</li>
+                <li class="container-tasbar__subnav-item">Thái Hà</li>
+                <li
+                  class="container-tasbar__subnav-item container-tasbar__subnav-item--active"
+                >
+                  Tất cả công ty phát hành
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="container__imgLarge">
+          <img src="./Images/banner/1.jpg" alt="" />
+          <div class="banner__thumbnail">
+            <img src="./Images/banner/thumnail_1.jpg" alt="" />
+            <img src="./Images/banner/thumnail_1.jpg" alt="" />
+            <img src="./Images/banner/thumnail_1.jpg" alt="" />
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="toolbar__search">
+    <form class="toolbar__search" style="display: none">
+      <div class="controler">
+        <!-- <i class="fa-solid fa-left-long"></i> -->
+        <i class="fa-solid fa-circle-left"></i>
+      </div>
       <div class="toolbar__search-left">
         <span class="toolbar__search-title">Sắp xếp theo</span>
-        <button class="toolbar__search-btn">Bán Chạy</button>
+
+        <div class="toolbar__search-filter">
+          <div class="toolbar__search-filter-title">
+            <span>Thể loại</span>
+            <i class="fa-solid fa-caret-down"></i>
+          </div>
+          <div class="toolbar__search-filter-list">
+            <div class="toolbar__search-range-item">
+              Sách Nấu Ăn 1<i class="fa-solid fa-check"></i>
+            </div>
+            <div class="toolbar__search-range-item">
+              Sách Nấu Ăn 2<i class="fa-solid fa-check"></i>
+            </div>
+            <div class="toolbar__search-range-item">
+              Sách Nấu Ăn 3<i class="fa-solid fa-check"></i>
+            </div>
+            <div class="toolbar__search-range-item">
+              Sách Nấu Ăn 4<i class="fa-solid fa-check"></i>
+            </div>
+          </div>
+        </div>
+
         <div class="price-range">
-          <input placeholder="10.000đ" type="number" name="" />
+          <input placeholder="10.000đ" type="number" name="" required />
           <span></span>
-          <input placeholder="1.000.000đ" type="number" name="" />
+          <input placeholder="1.000.000đ" type="number" name="" required />
         </div>
 
         <div class="toolbar__search-range">
-          <label for="">Giá</label>
-          <select name="" id="">
-            <option value="">Thấp đến Cao</option>
-            <option value="">Cao đến Thấp</option>
-          </select>
-          <!-- <div class="toolbar__search-range-title">Giá</div>
-          <div class="toolbar__search-range-sort">
-            <span >Giá: Thấp đến Cao</span>
-            <span>Giá: Cao đến Thấp</span>
-          </div> -->
+          <div class="toolbar__search-range-title">
+            <span>Giá</span>
+            <i class="fa-solid fa-caret-down"></i>
+          </div>
+          <div class="toolbar__search-range-list">
+            <div class="toolbar__search-range-item-up">
+              Giá: Thấp đến Cao<i class="fa-solid fa-check"></i>
+            </div>
+            <div class="toolbar__search-range-item-down">
+              Giá: Cao đến Thấp<i class="fa-solid fa-check"></i>
+            </div>
+          </div>
         </div>
       </div>
 
-      <button class="toolbar__search-icon">
+      <button type="submit" class="toolbar__search-icon">
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
-    </div>
+    </form>
+    <div class="toolbar__search-message"></div>
+    <div class="product__container">
+      <div class="container__row"></div>
+      <div class="container__row"></div>
+      <div class="container__row"></div>
+      <div class="container__row"></div>
+      <!-- <div class="container__row">
+        <div class="container__row-header">
+          <span class="container__row-header-heading"> Sách Mới</span>
+          <span class="container__row-header-seeMore">Xem tất cả</span>
+        </div>
 
-    <div class="container-content"></div>
-    <div class="pagenumbers" id="pagination"></div>
+        <button class="container__row-btn-prev">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="container__row-btn-next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <div class="container__row-wrap-list">
+          <div class="container__row-card">
+            <img src="./Images/books/1.jpg" alt="" />
+            <div class="container__row-card-title">
+              Muốn Thành Công Nói Không Với Trì Hoãn
+            </div>
+            <div class="container__row-card-price">10.000 đ</div>
+          </div>
+          <div class="container__row-card">
+            <img src="./Images/books/1.jpg" alt="" />
+            <div class="container__row-card-title">
+              Muốn Thành Công Nói Không Với Trì Hoãn
+            </div>
+            <div class="container__row-card-price">20.000 đ</div>
+          </div>
+          <div class="container__row-card">
+            <img src="./Images/books/1.jpg" alt="" />
+            <div class="container__row-card-title">
+              Muốn Thành Công Nói Không Với Trì Hoãn
+            </div>
+            <div class="container__row-card-price">30.000 đ</div>
+          </div>
+          <div class="container__row-card">
+            <img src="./Images/books/1.jpg" alt="" />
+            <div class="container__row-card-title">
+              Muốn Thành Công Nói Không Với Trì Hoãn
+            </div>
+            <div class="container__row-card-price">40.000 đ</div>
+          </div>
+          <div class="container__row-card">
+            <img src="./Images/books/1.jpg" alt="" />
+            <div class="container__row-card-title">
+              Muốn Thành Công Nói Không Với Trì Hoãn
+            </div>
+            <div class="container__row-card-price">50.000 đ</div>
+          </div>
+          <div class="container__row-card">
+            <img src="./Images/books/1.jpg" alt="" />
+            <div class="container__row-card-title">
+              Muốn Thành Công Nói Không Với Trì Hoãn
+            </div>
+            <div class="container__row-card-price">60.000 đ</div>
+          </div>
+          <div class="container__row-card">
+            <img src="./Images/books/1.jpg" alt="" />
+            <div class="container__row-card-title">
+              Muốn Thành Công Nói Không Với Trì Hoãn
+            </div>
+            <div class="container__row-card-price">70.000 đ</div>
+          </div>
+          <div class="container__row-card">
+            <img src="./Images/books/1.jpg" alt="" />
+            <div class="container__row-card-title">
+              Muốn Thành Công Nói Không Với Trì Hoãn
+            </div>
+            <div class="container__row-card-price">80.000 đ</div>
+          </div>
+          <div class="container__row-card">
+            <img src="./Images/books/1.jpg" alt="" />
+            <div class="container__row-card-title">
+              Muốn Thành Công Nói Không Với Trì Hoãn
+            </div>
+            <div class="container__row-card-price">90.000 đ</div>
+          </div>
+          <div class="container__row-card">
+            <img src="./Images/books/1.jpg" alt="" />
+            <div class="container__row-card-title">
+              Muốn Thành Công Nói Không Với Trì Hoãn
+            </div>
+            <div class="container__row-card-price">100.000 đ</div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <div class="main">
+      <div class="container-content" style="display: none"></div>
+      <div class="pagenumbers" id="pagination" style="display: none"></div>
+    </div>
 
     <div id="modal-container"></div>
 
-    <div class="list" id="list"></div>
+    <!-- <div class="list" id="list"></div> -->
 
-    <!--  <div class="login__form">
-      <div class="container__form">
-        <div class="form-header">
-          <div class="btn-prev">
-            <i class="fa-solid fa-caret-left"></i>
-            Trở về
-          </div>
-          <p class="btn-close">
-            <i class="fa-solid fa-xmark"></i>
-          </p>
-        </div>
-        <div class="login__header__title">ĐĂNG NHẬP</div>
-        <div class="form__body">
-          <div class="form__control input-username-login">
-            <input class="input" type="text" placeholder="Tên người dùng" />
-            <small>Error message</small>
-          </div>
-          <div class="form__control input-email-login">
-            <input class="input" type="text" placeholder="Email của bạn" />
-            <small>Error message</small>
-          </div>
-          <div class="form__control error input-password-login">
-            <input class="input" type="password" placeholder="Mật khẩu" />
-            <small>Error message</small>
-          </div>
-
-          <div class="form__control input-password-replace-login">
-            <input
-              class="input"
-              type="password"
-              placeholder="Nhập lại Mật khẩu"
-            />
-            <small>Error message</small>
-          </div>
-          <button class="btn btn-success btn-login">Đăng Nhập</button>
-          <div class="form__footer">
-            <p class="form__register">Đăng ký tài khoản mới</p>
-            <p>Quên mật khẩu</p>
-          </div>
-        </div>
-      </div>
-      <div class="form__layout"></div>
-    </div> -->
-    <div>
+    <div class="form">
       <div class="form_overlay"></div>
-
       <div class="login_form_content">
         <p class="login_form_btn_close">
           <i class="fa-solid fa-xmark"></i>
         </p>
         <div class="login_form_header">
-          <span class="login_form_header-login">Đăng nhập</span>
-          <span class="login_form_header-register">Đăng ký</span>
+          <span class="login_form_header-login active"
+            >Đăng nhập
+            <hr
+          /></span>
+          <span class="login_form_header-register"
+            >Đăng ký
+            <hr
+          /></span>
         </div>
+        <script></script>
         <div class="login_content">
           <form action="">
             <div class="form_group">
-              <label for="">Số điện thoại/Email</label>
-              <input type="text" placeholder="Nhập số điện thoại hoặc email" />
+              <label for="">Tên người dùng</label>
+              <input type="text" placeholder="Nhập tên tài khoản" />
               <span class="form_message"></span>
             </div>
             <div class="form_group">
@@ -204,8 +386,13 @@
         <div class="register_content">
           <form action="">
             <div class="form_group">
-              <label for="">Số điện thoại</label>
-              <input type="number" placeholder="Nhập số điện thoại" />
+              <label for="">Tên người dùng</label>
+              <input type="text" placeholder="Nhập tên tài khoản" />
+              <span class="form_message"></span>
+            </div>
+            <div class="form_group">
+              <label for="">Email</label>
+              <input type="text" placeholder="Nhập địa chỉ email" />
               <span class="form_message"></span>
             </div>
             <div class="form_group">
@@ -232,190 +419,26 @@
           </form>
         </div>
       </div>
-      <script>
-        const iconForm = document.querySelector(".header__login");
-        const form = document.querySelector(".login_form_content");
-        const login = document.querySelector(".login_form_header-login");
-        const register = document.querySelector(".login_form_header-register");
-        const registerContent = document.querySelector(".register_content");
-        const loginContent = document.querySelector(".login_content");
-        const headerLine = document.querySelector(".login_form_header span");
-        const formBtnClose = document.querySelector(".login_form_btn_close");
-        const showTexts = document.querySelectorAll(".form_input_showtext");
-        const formOverlay = document.querySelector(".form_overlay");
-        const inputPassAll = form.querySelectorAll("input[type='password']");
-        console.log(inputPassAll);
-
-        loginContent.addEventListener("submit", (e) => {
-          e.preventDefault();
-          const userLogin = loginContent.querySelector("input[type='text']");
-          const userValue = userLogin.value.trim();
-
-          const pass = loginContent.querySelector("input[type='password']");
-          const passValue = pass.value.trim();
-          console.log(userLogin, pass);
-          if (userValue === "") {
-            setErrorMessage(userLogin, "fadfafdasfasfs");
-          } else {
-            setSuccessMessage(userLogin);
-          }
-          if (passValue === "") {
-            setErrorMessage(pass, "fadfafdasfasfs");
-          } else {
-            setSuccessMessage(pass);
-          }
-
-          usersAccount = [
-            {
-              id: "user1",
-              pw: "123",
-              isActive: false,
-            },
-            {
-              id: "user2",
-              pw: "123",
-              isActive: false,
-            },
-            {
-              id: "user3",
-              pw: "123",
-              isActive: false,
-            },
-            {
-              id: "user4",
-              pw: "123",
-              isActive: false,
-            },
-            {
-              id: "user5",
-              pw: "123",
-              isActive: false,
-            },
-          ];
-          const userCurrent = usersAccount.find((item) => {
-            return item.id === userValue && item.pw === passValue;
-          });
-          if (userCurrent) {
-            console.log(userCurrent);
-            alert("Đăng nhập thành công");
-            iconForm.click();
-            const userInfo = document.querySelector(".header_user_info");
-            const iconLogin = document.querySelector(".header_icon_login");
-            const avatarUser = document.querySelector(".header__login_avatar");
-            iconLogin.style.display = "none";
-            avatarUser.style.display = "inline-block";
-            // removeEventListener("click", iconForm);
-            /* userInfo.innerHTML = `
-              <p>Xin chào ${userCurrent.id}</p>
-            `; */
-          } else {
-            console.log(123);
-          }
-        });
-        registerContent.addEventListener("submit", (e) => {
-          e.preventDefault();
-          checkInputs();
-        });
-        function checkInputs() {
-          const phone = registerContent.querySelector("input[type='number']");
-          const phoneValue = phone.value.trim();
-
-          const pass = registerContent.querySelector("input[type='password']");
-          const passValue = pass.value.trim();
-
-          const pass2 = registerContent.querySelector(".input_pass_2");
-          const pass2Value = pass2.value.trim();
-
-          console.log(phoneValue, passValue, pass2Value);
-          if (phoneValue === "") {
-            setErrorMessage(phone, "fadfafdasfasfs");
-          } else {
-            setSuccessMessage(phone);
-          }
-          if (passValue === "") {
-            setErrorMessage(pass, "fadfafdasfasfs");
-          } else {
-            setSuccessMessage(pass);
-          }
-          if (pass2Value === "") {
-            setErrorMessage(pass2, "fadfafdasfasfs");
-          } else if (pass2Value !== passValue) {
-            setErrorMessage(pass2, "Mật khẩu không trùng khớp");
-          } else {
-            setSuccessMessage(pass2);
-          }
-        }
-
-        function isEmail(email) {
-          return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-            email
-          );
-        }
-        function setErrorMessage(input, message) {
-          console.log(input.nextElementSibling);
-          input.classList.add("error");
-          input.classList.remove("success");
-
-          input.nextElementSibling.innerText = message;
-          input.nextElementSibling.classList.add("show");
-        }
-        function setSuccessMessage(input) {
-          input.classList.add("success");
-          input.classList.remove("error");
-        }
-
-        showTexts.forEach((item) => {
-          item.addEventListener("click", () => {
-            if (item.parentElement.children[1].type === "password") {
-              item.parentElement.children[1].type = "text";
-            } else {
-              item.parentElement.children[1].type = "password";
-            }
-            if (item.innerHTML === "Hiện") {
-              item.innerHTML = "Ẩn";
-            } else {
-              item.innerHTML = "Hiện";
-            }
-          });
-        });
-        loginContent.classList.add("show");
-        login.addEventListener("click", () => {
-          loginContent.classList.add("show");
-          registerContent.classList.remove("show");
-        });
-        register.addEventListener("click", () => {
-          registerContent.classList.add("show");
-          loginContent.classList.remove("show");
-        });
-        iconForm.addEventListener("click", () => {
-          form.classList.toggle("show");
-          formOverlay.classList.toggle("show");
-        });
-        formBtnClose.addEventListener("click", () => {
-          iconForm.click();
-        });
-        formOverlay.addEventListener("click", () => {
-          iconForm.click();
-        });
-      </script>
     </div>
-    <div class="list__cart">
-      <div class="cart__header">
-        <p class="cart__btnClose">
-          <i class="fa-solid fa-xmark"></i>
-        </p>
-        <div class="cart__heading">Giỏ Hàng</div>
+    <div class="cart__container">
+      <div class="list__cart">
+        <div class="cart__header">
+          <p class="cart__btnClose">
+            <i class="fa-solid fa-xmark"></i>
+          </p>
+          <div class="cart__heading">Giỏ Hàng</div>
+        </div>
+        <div class="cart__noCart">
+          Giỏ hàng của bạn đang trống
+          <img
+            src="https://bengo.vn/static/version1650994791/frontend/MageBig/martfury_layout01/vi_VN/images/empty-cart.svg"
+            alt=""
+          />
+        </div>
+        <div class="cart__items"></div>
       </div>
-      <div class="cart__noCart">
-        Giỏ hàng của bạn đang trống
-        <img
-          src="https://bengo.vn/static/version1650994791/frontend/MageBig/martfury_layout01/vi_VN/images/empty-cart.svg"
-          alt=""
-        />
-      </div>
-      <div class="cart__items"></div>
+      <div class="cart__overlay"></div>
     </div>
-    <div class="cart__overlay"></div>
 
     <footer>
       <div class="footer-container">
@@ -470,8 +493,13 @@
     </footer>
   </body>
 
-  <!-- <script src="./js/renderData.js" defer></script> -->
   <script src="./js/pagination.js"></script>
+  <script src="./js/product_list.js"></script>
+  <script src="./js/slider.js"></script>
   <script src="./js/cart.js"></script>
+  <script src="./js/login_register.js"></script>
+  <script src="./js/toolbar_search.js"></script>
+
+  <!-- <script src="./js/renderData.js" defer></script> -->
   <!-- <script src="./js/login_register.js" defer></script> -->
 </html>
