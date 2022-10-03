@@ -2,27 +2,26 @@ usersAccount = [
   {
     id: "user1",
     pw: "123",
-    isActive: false,
+    email: "",
+    cart: [],
+    phone: "",
+    address: "",
   },
   {
     id: "user2",
     pw: "123",
-    isActive: false,
   },
   {
     id: "user3",
     pw: "123",
-    isActive: false,
   },
   {
     id: "user4",
     pw: "123",
-    isActive: false,
   },
   {
     id: "user5",
     pw: "123",
-    isActive: false,
   },
 ];
 const formTitle = document.querySelectorAll(".login_form_header span");
@@ -48,40 +47,71 @@ const formBtnClose = document.querySelector(".login_form_btn_close");
 const showTexts = document.querySelectorAll(".form_input_showtext");
 const formOverlay = document.querySelector(".form_overlay");
 const inputPassAll = form.querySelectorAll("input[type='password']");
+const btnLogout = document.querySelector(".header__login-logout");
+let registerAccount = [];
+btnLogout.addEventListener("click", () => {
+  if (localStorage.getItem("userLoginCurrent") !== null) {
+    localStorage.removeItem("userLoginCurrent");
+    window.location.reload();
+  }
+});
+function showFormLogin() {
+  form.classList.toggle("show");
+  formOverlay.classList.toggle("show");
+}
+iconForm.addEventListener("click", showFormLogin);
+formBtnClose.addEventListener("click", () => {
+  iconForm.click();
+});
+formOverlay.addEventListener("click", () => {
+  iconForm.click();
+});
 
+if (localStorage.getItem("userLoginCurrent") !== null) {
+  console.log("da dang nhap");
+  const userInfo = document.querySelector(".header_user_info");
+  const iconLogin = document.querySelector(".header__login-icon");
+  const avatarUser = document.querySelector(".header__login_avatar");
+  avatarUser.classList.add("show");
+  iconLogin.classList.remove("show");
+  avatarUser.classList.add("show");
+  iconForm.removeEventListener("click", showFormLogin);
+} else {
+  console.log("chua dang nhap");
+}
 loginContent.addEventListener("submit", (e) => {
   e.preventDefault();
-  const userLogin = loginContent.querySelector("input[type='text']");
+  const username = loginContent.querySelector("input[type='text']");
   const pass = loginContent.querySelector("input[type='password']");
 
-  checkEmptyValue([userLogin, pass]);
+  checkEmptyValue([username, pass]);
 
-  if (checkEmptyInput(userLogin) == false) {
-    let isUserLength = checkLength(userLogin, 3, 8);
+  if (checkEmptyInput(username) == false) {
+    let isUserLength = checkLength(username, 3, 8);
   }
   if (checkEmptyInput(pass) == false) {
     let isUserLength = checkLength(pass, 3, 8);
   }
-  /* const userValue = userLogin.value.trim();
-  const passValue = pass.value.trim();
-  if (userValue === "") {
-    setErrorMessage(userLogin, "Bạn chưa điền đúng thông tin");
-  } else {
-    setSuccessMessage(userLogin);
-  }
-  if (passValue === "") {
-    setErrorMessage(pass, "Bạn chưa điền đúng thông tin");
-  } else {
-    setSuccessMessage(pass);
-  } */
-
-  const userCurrent = usersAccount.find((item) => {
-    return item.id === userLogin.value && item.pw === pass.value;
+  let getUserRegister = localStorage.getItem("registerAccount");
+  registerAccount = JSON.parse(getUserRegister);
+  console.log(getUserRegister);
+  const findUser = usersAccount.find((item) => {
+    return item.id === username.value && item.pw === pass.value;
   });
-  if (userCurrent) {
-    userCurrent.isActive = true;
+  const findUserByRegister = registerAccount.find((item) => {
+    return item.id === username.value && item.pw === pass.value;
+  });
+  console.log(findUser, findUserByRegister);
+  if (findUser || findUserByRegister) {
+    localStorage.setItem(
+      "userLoginCurrent",
+      findUser !== undefined
+        ? JSON.stringify(findUser)
+        : JSON.stringify(findUserByRegister)
+    );
     alert("Đăng nhập thành công");
     iconForm.click();
+    console.log(iconForm);
     iconForm.removeEventListener("click", showFormLogin);
     const userInfo = document.querySelector(".header_user_info");
     const iconLogin = document.querySelector(".header__login-icon");
@@ -93,10 +123,11 @@ loginContent.addEventListener("submit", (e) => {
     avatarUser.classList.add("show");
   } else {
     alert("Đăng nhập khong dung");
-    resetInput([userLogin, pass]);
+    resetInput([username, pass]);
   }
 });
 
+// handle register
 registerContent.addEventListener("submit", (e) => {
   e.preventDefault();
   const inputs = registerContent.querySelectorAll("input");
@@ -121,14 +152,19 @@ registerContent.addEventListener("submit", (e) => {
     !isUserLength3 &&
     !isMatchingPW3
   ) {
-    let arr = [
-      {
-        id: inputs[0].value,
-        email: inputs[1].value,
-        pw: inputs[2].value,
-      },
-    ];
-    console.log(arr);
+    let user = {
+      id: inputs[0].value,
+      email: inputs[1].value,
+      pw: inputs[2].value,
+    };
+    let data = registerAccount;
+    if (data.length !== 0) {
+      let user = localStorage.getItem("registerAccount");
+      data = JSON.parse(user);
+    }
+    data.push(user);
+    let json = JSON.stringify(data);
+    localStorage.setItem("registerAccount", json);
   }
 });
 
@@ -240,15 +276,4 @@ register.addEventListener("click", () => {
 });
 usersAccount.some((item) => {
   return;
-});
-function showFormLogin() {
-  form.classList.toggle("show");
-  formOverlay.classList.toggle("show");
-}
-iconForm.addEventListener("click", showFormLogin);
-formBtnClose.addEventListener("click", () => {
-  iconForm.click();
-});
-formOverlay.addEventListener("click", () => {
-  iconForm.click();
 });

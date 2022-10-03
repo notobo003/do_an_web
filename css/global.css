@@ -407,6 +407,12 @@ header {
   text-align: center;
   border-radius: 10px;
 }
+.header__login-user-menu li {
+  padding: 5px;
+}
+.header__login-user-menu li:hover {
+  background: #ccc;
+}
 .header__login:hover .header__login-icon.show ~ .header__login-menu,
 .header__login:hover .header__login_avatar.show ~ .header__login-user-menu {
   display: block;
@@ -1203,4 +1209,81 @@ header {
 }
 .form_overlay.show {
   display: block;
+}
+
+.order__container {
+  width: 90%;
+  margin: 0 auto;
+  /* background: #ccc; */
+  position: absolute;
+  background: #fff;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+.order__container.show {
+  display: block;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table tbody tr {
+  height: 50px;
+  width: 100%;
+  text-align: center;
+}
+th,
+td {
+  border: 1px solid #ccc;
+}
+.column1 {
+  width: 5%;
+}
+
+.column2 {
+  width: 10%;
+}
+
+.column3 {
+  width: 25%;
+}
+
+.column4 {
+  width: 15%;
+}
+
+.column5 {
+  width: 15%;
+}
+
+.column6 {
+  width: 15%;
+}
+
+.column7 {
+  width: 15%;
+}
+.order__overlay {
+  background: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  display: none;
+}
+.order__overlay.show {
+  display: block;
+}
+.order__container-btn-close {
+  font-size: 20px;
+  padding: 10px 1px;
+  float: right;
+}
+.order__container-btn-close ~ h1 {
+  clear: both;
 }
