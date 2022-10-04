@@ -1287,3 +1287,72 @@ td {
 .order__container-btn-close ~ h1 {
   clear: both;
 }
+
+/* ============== */
+.info__container {
+  width: 60%;
+  background: #ccc;
+  margin: 0 auto;
+  display: none;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+}
+.info__container.show {
+  display: block;
+}
+.info__overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;  
+}
+.info__overlay.show {
+  display: block;
+}
+.info__container h2 {
+  text-align: center;
+}
+.form-group {
+  margin: 10px;
+}
+.info__container label {
+  display: block;
+  font-size: 14px;
+  margin-left: 10px;
+}
+.info__container select {
+  width: 100%;
+  padding: 8px 20px;
+  appearance: none;
+  border-radius: 5px;
+  color: #000;
+}
+
+.info__container input {
+  display: block;
+  padding: 8px 20px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.info__container form {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.form__info-btn-save button {
+  font-size: 16px;
+  margin: 10px auto;
+  padding: 8px;
+  width: 40%;
+  display: block;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}

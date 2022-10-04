@@ -120,10 +120,10 @@ function renderProducts(arrProducts, element, nameCategory) {
           <span onclick="showAllProducts('${nameCategory}')" class="container__row-header-seeMore" >Xem tất cả</span>
         </div>
 
-        <button class="container__row-btn-prev">
+        <button class="container__row-btn-prev" >
           <i class="fa-solid fa-chevron-left"></i>
         </button>
-        <button class="container__row-btn-next">
+        <button class="container__row-btn-next" >
           <i class="fa-solid fa-chevron-right"></i>
         </button>
         <div class="container__row-wrap-list">${htmls}</div>

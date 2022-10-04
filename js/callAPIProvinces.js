@@ -1,0 +1,63 @@
+let url = "https://provinces.open-api.vn/api/";
+const eProvice = document.querySelector("#region_id");
+const eDivision = document.querySelector("#city_id");
+const eWard = document.querySelector("#ward_id");
+
+fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
+    handleData(data);
+  });
+function handleData(data) {
+  let htmls = `<option value="">Vui lòng chọn</option>`;
+  data.forEach((item) => {
+    htmls += `
+        <option value="${item.code}">${item.name}</option>
+        `;
+  });
+  eProvice.innerHTML = htmls;
+}
+eProvice.addEventListener("click", () => {
+  codeProvince = eProvice.value;
+  console.log(codeProvince);
+  fetch(url + "d")
+    .then((response) => response.json())
+    .then((data) => {
+      handleDivision(data);
+    });
+  function handleDivision(data) {
+    const arr = data.filter((item) => {
+      return item.province_code == codeProvince;
+    });
+    console.log(arr);
+    let htmls = `<option value="">Vui lòng chọn</option>`;
+    arr.forEach((item) => {
+      htmls += `
+        <option value="${item.code}">${item.name}</option>
+        `;
+    });
+    eDivision.innerHTML = htmls;
+  }
+  eDivision.addEventListener("click", () => {
+    codeDivision = eDivision.value;
+    console.log(codeDivision);
+    fetch(url + "w")
+      .then((response) => response.json())
+      .then((data) => {
+        handleWard(data);
+      });
+    function handleWard(data) {
+      const arr = data.filter((item) => {
+        return item.district_code == codeDivision;
+      });
+      console.log(arr);
+      let htmls = `<option value="">Vui lòng chọn</option>`;
+      arr.forEach((item) => {
+        htmls += `
+        <option value="${item.code}">${item.name}</option>
+        `;
+      });
+      eWard.innerHTML = htmls;
+    }
+  });
+});

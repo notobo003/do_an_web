@@ -40,7 +40,7 @@ const iconForm = document.querySelector(".header__login");
 const form = document.querySelector(".login_form_content");
 const login = document.querySelector(".login_form_header-login");
 const register = document.querySelector(".login_form_header-register");
-const registerContent = document.querySelecto r(".register_content");
+const registerContent = document.querySelector(".register_content");
 const loginContent = document.querySelector(".login_content");
 const headerLine = document.querySelector(".login_form_header span");
 const formBtnClose = document.querySelector(".login_form_btn_close");
@@ -276,4 +276,14 @@ register.addEventListener("click", () => {
 });
 usersAccount.some((item) => {
   return;
+});
+const btnInfo = document.querySelector(".header__login-info");
+const infoOverlay = document.querySelector(".info__overlay");
+const infoContainer = document.querySelector(".info__container");
+btnInfo.addEventListener("click", () => {
+  infoOverlay.classList.toggle("show");
+  infoContainer.classList.toggle("show");
+});
+infoOverlay.addEventListener("click", () => {
+  btnInfo.click();
 });
