@@ -14,7 +14,6 @@ const books = [
     price: 85200,
     currentPrice: 10000,
     description: "",
-    quantity: 100,
   },
   {
     id: 2,
@@ -29,7 +28,6 @@ const books = [
     ],
     price: 85200,
     currentPrice: 20000,
-    quantity: 100,
   },
   {
     id: 3,
@@ -44,7 +42,6 @@ const books = [
     ],
     price: 85200,
     currentPrice: 30000,
-    quantity: 100,
   },
   {
     id: 4,
@@ -183,6 +180,7 @@ function DisplayList(items, rows_per_page, page) {
   let end = start + rows_per_page;
   console.log(start, end);
   let paginatedItems = items.slice(start, end);
+
   renderData(paginatedItems);
 }
 /* ======================== */
@@ -241,9 +239,8 @@ function changeImg(srcImg) {
   let imgPath = document.querySelector(".modal-body-left .card__img");
   imgPath.setAttribute("src", srcImg);
 }
-
 function showItemDetail(id) {
-  let itemData = books.forEach((item) => {
+  books.forEach((item) => {
     if (item.id === id) {
       const e = document.querySelector(".element" + id);
       const modal_container = document.querySelector("#modal-container");
@@ -272,7 +269,7 @@ function showItemDetail(id) {
                 <div class="card__price">${numbertoVND(item.price)}</div>
               </div>
               <p>Số Lượng</p>
-              <div class="card__quantityInput">
+              <div class="card__quantityInput" >
               <button class="cart__btn__down"><img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-remove.svg" alt="remove-icon"></button>
               <input type="text" class="cart__input__quantity" value="1">
               <button class="cart__btn__up"><img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-add.svg" alt="add-icon"></button>
@@ -288,6 +285,7 @@ function showItemDetail(id) {
           <div class="modal-overlay"></div>
         `;
       modal_container.innerHTML = htmls;
+
       const overlay = document.querySelector(".modal-overlay");
       const modal = document.querySelector("#modal");
       const body = document.querySelector("html");
@@ -319,7 +317,14 @@ function showItemDetail(id) {
       const btnDown = document.querySelector(".cart__btn__down");
       const inputQuantity = document.querySelector(".cart__input__quantity");
       const btnUp = document.querySelector(".cart__btn__up");
-      quantityCounter(btnDown, inputQuantity, btnUp, item);
+      
+      btnDown.addEventListener("click", () => {
+        inputQuantity.value--;
+      });
+      btnUp.addEventListener("click", () => {
+        inputQuantity.value++;
+      });
+      // quantityCounter(btnDown, inputQuantity, btnUp, item);
       /* console.log(btnDown, btnUp);
 
       var quantityCount = 1;

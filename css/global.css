@@ -734,8 +734,7 @@ header {
   display: block;
 }
 .list__cart {
-  max-width: 60%;
-  min-width: 50%;
+  width: 70%;
   position: absolute;
   margin-bottom: 50px;
   max-height: 95vh;
@@ -1310,7 +1309,7 @@ td {
   left: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.6);
-  display: none;  
+  display: none;
 }
 .info__overlay.show {
   display: block;

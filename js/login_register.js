@@ -48,6 +48,7 @@ const showTexts = document.querySelectorAll(".form_input_showtext");
 const formOverlay = document.querySelector(".form_overlay");
 const inputPassAll = form.querySelectorAll("input[type='password']");
 const btnLogout = document.querySelector(".header__login-logout");
+const nameUser = document.querySelector(".header__login-name");
 let registerAccount = [];
 btnLogout.addEventListener("click", () => {
   if (localStorage.getItem("userLoginCurrent") !== null) {
@@ -69,12 +70,12 @@ formOverlay.addEventListener("click", () => {
 
 if (localStorage.getItem("userLoginCurrent") !== null) {
   console.log("da dang nhap");
-  const userInfo = document.querySelector(".header_user_info");
   const iconLogin = document.querySelector(".header__login-icon");
   const avatarUser = document.querySelector(".header__login_avatar");
   avatarUser.classList.add("show");
   iconLogin.classList.remove("show");
   avatarUser.classList.add("show");
+  nameUser.innerText = JSON.parse(localStorage.getItem("userLoginCurrent")).id;
   iconForm.removeEventListener("click", showFormLogin);
 } else {
   console.log("chua dang nhap");
@@ -110,6 +111,7 @@ loginContent.addEventListener("submit", (e) => {
         : JSON.stringify(findUserByRegister)
     );
     alert("Đăng nhập thành công");
+    nameUser.innerText = username.value;
     iconForm.click();
     console.log(iconForm);
     iconForm.removeEventListener("click", showFormLogin);
