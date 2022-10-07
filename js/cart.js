@@ -101,6 +101,18 @@ function getIdCart(id) {
   /*   userCart.push(a);
   console.log(a);
   console.log(userCart); */
+
+  const btnOrder = document.querySelector(".cart__btnOrder");
+  btnOrder.addEventListener("click", () => {
+    let date = new Date();
+    let dateOrder = `${date.getDate()}/${
+      date.getMonth() + 1
+    }/${date.getFullYear()}:${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    console.log(dateOrder);
+    renderTableOrders(userCart, dateOrder);
+    alert("Đặt hàng thành công");
+    cart.click();
+  });
 }
 
 /* function price(e, userCart) {
@@ -133,15 +145,17 @@ function getIdCart(id) {
   });
 } */
 function deleteItem(eDelete, id) {
-  let confirmDelete;
-  confirmDelete = confirm("Bạn có chắc chắn muốn xóa");
+  /*   console.log(userCart.length);
+  console.log(cartCount); */
+  let confirmDelete = confirm("Bạn có chắc chắn muốn xóa");
   if (confirmDelete === true) {
     eDelete.parentNode.remove();
     let index = userCart.forEach((i, indx) => {
       if (i.id === id) {
         console.log(indx);
         userCart.splice(indx, 1);
-        console.log(userCart);
+        const cartCount = document.querySelector(".cart__counter");
+        cartCount.innerText = userCart.length;
       }
     });
     let e = document.querySelector(".cart__total p");
@@ -254,13 +268,26 @@ function renderCart(userCart) {
   console.log(inputQuantity);
   console.log(btnUp);
   userCart.forEach((item, index) => {
+    if (inputQuantity[index].value == 1) {
+      btnDown[index].classList.add("disable");
+    }
     btnDown[index].addEventListener("click", () => {
-      inputQuantity[index].value--;
-      item.quantity--;
+      if (inputQuantity[index].value == 1) {
+        btnDown[index].classList.add("disable");
+      } else if (inputQuantity[index].value == 2) {
+        inputQuantity[index].value--;
+        item.quantity--;
+        btnDown[index].classList.add("disable");
+      } else {
+        inputQuantity[index].value--;
+        item.quantity--;
+      }
       console.log(sumPriceTotal(userCart));
       priceTotal.innerHTML = `${numbertoVND(sumPriceTotal(userCart))}`;
     });
     btnUp[index].addEventListener("click", () => {
+      btnDown[index].classList.remove("disable");
+
       inputQuantity[index].value++;
       item.quantity++;
       priceTotal.innerHTML = `${numbertoVND(sumPriceTotal(userCart))}`;

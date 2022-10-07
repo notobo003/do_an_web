@@ -9,16 +9,16 @@ fetch(url)
     handleData(data);
   });
 function handleData(data) {
-  let htmls = `<option value="">Vui lòng chọn</option>`;
+  let htmls = `<option >Vui lòng chọn</option>`;
   data.forEach((item) => {
     htmls += `
-        <option value="${item.code}">${item.name}</option>
+        <option value="${item.code}" title="${item.name}">${item.name}</option>
         `;
   });
   eProvice.innerHTML = htmls;
 }
 eProvice.addEventListener("click", () => {
-  codeProvince = eProvice.value;
+  let codeProvince = eProvice.value;
   console.log(codeProvince);
   fetch(url + "d")
     .then((response) => response.json())
@@ -30,10 +30,10 @@ eProvice.addEventListener("click", () => {
       return item.province_code == codeProvince;
     });
     console.log(arr);
-    let htmls = `<option value="">Vui lòng chọn</option>`;
+    let htmls = `<option>Vui lòng chọn</option>`;
     arr.forEach((item) => {
       htmls += `
-        <option value="${item.code}">${item.name}</option>
+        <option value="${item.code}" title="${item.name}">${item.name}</option>
         `;
     });
     eDivision.innerHTML = htmls;
@@ -51,10 +51,10 @@ eProvice.addEventListener("click", () => {
         return item.district_code == codeDivision;
       });
       console.log(arr);
-      let htmls = `<option value="">Vui lòng chọn</option>`;
+      let htmls = `<option>Vui lòng chọn</option>`;
       arr.forEach((item) => {
         htmls += `
-        <option value="${item.code}">${item.name}</option>
+        <option value="${item.code}" title="${item.name}">${item.name}</option>
         `;
       });
       eWard.innerHTML = htmls;

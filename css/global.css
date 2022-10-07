@@ -812,6 +812,9 @@ header {
   background: #ccc;
   margin: 0 5px;
 }
+.cart__item__quantity button.disable {
+  cursor: not-allowed;
+}
 .cart__item__price {
   font-size: 16px;
   font-weight: 500;
@@ -1238,6 +1241,20 @@ table tbody tr {
 th,
 td {
   border: 1px solid #ccc;
+}
+.order table {
+  display: none;
+}
+.order table.show {
+  display: block;
+}
+.order__container > h3 {
+  text-align: center;
+  margin: 20px;
+  color: red;
+}
+.order__container > h3.disable {
+  display: none;
 }
 .column1 {
   width: 5%;
