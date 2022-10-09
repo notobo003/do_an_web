@@ -28,7 +28,7 @@
   <body>
     <header class="header">
       <div class="header__logo">
-        <img src="./Images/fahasa.png" />
+        <img src="./images/fahasa.png" />
       </div>
       <div class="header__menu">
         <span></span>
@@ -64,11 +64,15 @@
             <i class="fa-regular fa-user header__login-icon show"></i>
             <img
               class="header__login_avatar"
-              src="./Images/avatar_users/2.jpg"
+              src="./images/avatar_users/2.jpg"
             />
             <ul class="header__login-menu">
-              <li><button>Đăng Nhập</button></li>
-              <li><button>Đăng Ký</button></li>
+              <li>
+                <button class="header__login-btn-login">Đăng Nhập</button>
+              </li>
+              <li>
+                <button class="header__login-btn-register">Đăng Ký</button>
+              </li>
             </ul>
             <ul class="header__login-user-menu">
               <li class="header__login-info">Thông tin của tôi</li>
@@ -183,11 +187,11 @@
           </ul>
         </div>
         <div class="container__imgLarge">
-          <img src="./Images/banner/1.jpg" alt="" />
+          <img src="./images/banner/1.jpg" alt="" />
           <div class="banner__thumbnail">
-            <img src="./Images/banner/thumnail_1.jpg" alt="" />
-            <img src="./Images/banner/thumnail_1.jpg" alt="" />
-            <img src="./Images/banner/thumnail_1.jpg" alt="" />
+            <img src="./images/banner/thumnail_1.jpg" alt="" />
+            <img src="./images/banner/thumnail_1.jpg" alt="" />
+            <img src="./images/banner/thumnail_1.jpg" alt="" />
           </div>
         </div>
       </div>
@@ -268,70 +272,70 @@
         </button>
         <div class="container__row-wrap-list">
           <div class="container__row-card">
-            <img src="./Images/books/1.jpg" alt="" />
+            <img src="./images/books/1.jpg" alt="" />
             <div class="container__row-card-title">
               Muốn Thành Công Nói Không Với Trì Hoãn
             </div>
             <div class="container__row-card-price">10.000 đ</div>
           </div>
           <div class="container__row-card">
-            <img src="./Images/books/1.jpg" alt="" />
+            <img src="./images/books/1.jpg" alt="" />
             <div class="container__row-card-title">
               Muốn Thành Công Nói Không Với Trì Hoãn
             </div>
             <div class="container__row-card-price">20.000 đ</div>
           </div>
           <div class="container__row-card">
-            <img src="./Images/books/1.jpg" alt="" />
+            <img src="./images/books/1.jpg" alt="" />
             <div class="container__row-card-title">
               Muốn Thành Công Nói Không Với Trì Hoãn
             </div>
             <div class="container__row-card-price">30.000 đ</div>
           </div>
           <div class="container__row-card">
-            <img src="./Images/books/1.jpg" alt="" />
+            <img src="./images/books/1.jpg" alt="" />
             <div class="container__row-card-title">
               Muốn Thành Công Nói Không Với Trì Hoãn
             </div>
             <div class="container__row-card-price">40.000 đ</div>
           </div>
           <div class="container__row-card">
-            <img src="./Images/books/1.jpg" alt="" />
+            <img src="./images/books/1.jpg" alt="" />
             <div class="container__row-card-title">
               Muốn Thành Công Nói Không Với Trì Hoãn
             </div>
             <div class="container__row-card-price">50.000 đ</div>
           </div>
           <div class="container__row-card">
-            <img src="./Images/books/1.jpg" alt="" />
+            <img src="./images/books/1.jpg" alt="" />
             <div class="container__row-card-title">
               Muốn Thành Công Nói Không Với Trì Hoãn
             </div>
             <div class="container__row-card-price">60.000 đ</div>
           </div>
           <div class="container__row-card">
-            <img src="./Images/books/1.jpg" alt="" />
+            <img src="./images/books/1.jpg" alt="" />
             <div class="container__row-card-title">
               Muốn Thành Công Nói Không Với Trì Hoãn
             </div>
             <div class="container__row-card-price">70.000 đ</div>
           </div>
           <div class="container__row-card">
-            <img src="./Images/books/1.jpg" alt="" />
+            <img src="./images/books/1.jpg" alt="" />
             <div class="container__row-card-title">
               Muốn Thành Công Nói Không Với Trì Hoãn
             </div>
             <div class="container__row-card-price">80.000 đ</div>
           </div>
           <div class="container__row-card">
-            <img src="./Images/books/1.jpg" alt="" />
+            <img src="./images/books/1.jpg" alt="" />
             <div class="container__row-card-title">
               Muốn Thành Công Nói Không Với Trì Hoãn
             </div>
             <div class="container__row-card-price">90.000 đ</div>
           </div>
           <div class="container__row-card">
-            <img src="./Images/books/1.jpg" alt="" />
+            <img src="./images/books/1.jpg" alt="" />
             <div class="container__row-card-title">
               Muốn Thành Công Nói Không Với Trì Hoãn
             </div>
@@ -341,9 +345,10 @@
       </div> -->
     </div>
     <div class="main">
+      <div class="container-header"></div>
       <div class="container-content" style="display: none"></div>
-      <div class="pagenumbers" id="pagination" style="display: none"></div>
     </div>
+    <div class="pagenumbers" id="pagination" style="display: none"></div>
 
     <div id="modal-container"></div>
 
@@ -483,41 +488,45 @@
 
         <form>
           <div class="info__user">
-            <div class="form-group">
+            <div class="form_group">
               <label for="">Họ và Tên Đệm</label>
               <input type="text" placeholder="" required />
+              <span class="form_message"></span>
             </div>
-            <div class="form-group">
+            <div class="form_group">
               <label for="">Tên</label>
               <input type="text" placeholder="" required />
+              <span class="form_message"></span>
             </div>
-            <div class="form-group">
+            <div class="form_group">
               <label for="">Số điện thoại</label>
               <input type="number" maxlength="10" placeholder="" required />
+              <span class="form_message"></span>
             </div>
           </div>
           <div class="address__user">
-            <div class="form-group">
+            <div class="form_group">
               <label for="">Tỉnh/Thành phố </label>
               <select required id="region_id" name="region_id" defaultvalue="">
                 <option>Vui lòng chọn</option>
               </select>
             </div>
-            <div class="form-group">
+            <div class="form_group">
               <label for="">Quận/Huyện</label>
               <select required id="city_id" name="city_id" defaultvalue="">
-                <option>Vui lòng chọn</option>
+                <!-- <option>Vui lòng chọn</option> -->
               </select>
             </div>
-            <div class="form-group">
+            <div class="form_group">
               <label for="">Xã/Phường</label>
               <select required id="ward_id" name="ward_id" defaultvalue="">
-                <option>Vui lòng chọn</option>
+                <!-- <option>Vui lòng chọn</option> -->
               </select>
             </div>
-            <div class="form-group">
+            <div class="form_group">
               <label for="">Số Nhà/Đường/Hẽm</label>
               <input type="text" placeholder="Ví dụ: 1 Đường ABC ..." />
+              <span class="form_message"></span>
             </div>
           </div>
         </form>
@@ -584,14 +593,15 @@
     crossorigin="anonymous"
     defer
   ></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/toolbar_search.js"></script>
   <script src="./js/pagination.js"></script>
   <script src="./js/product_list.js"></script>
   <script src="./js/slider.js"></script>
   <script src="./js/cart.js"></script>
   <script src="./js/login_register.js"></script>
-  <script src="./js/toolbar_search.js"></script>
-  <script src="./js/info_user.js"></script>
   <script src="./js/callAPIProvinces.js"></script>
+  <script src="./js/info_user.js"></script>
   <script src="./js/orders.js"></script>
 
   <!-- <script src="./js/renderData.js" defer></script> -->

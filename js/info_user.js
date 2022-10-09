@@ -10,9 +10,30 @@ if (JSON.parse(localStorage.getItem("info")) != null) {
   inputs[1].value = user.firstName;
   inputs[2].value = user.phone;
   inputs[3].value = user.addressHome;
+  window.onload = () => {
+    selects[0].value = user.province;
+    selects[0].click();
+    setTimeout(() => {
+      console.log(selects[1][0]);
+      selects[1].value = user.city;
+      selects[1].click();
+      setTimeout(() => {
+        selects[2].value = user.ward;
+      }, 1000);
+    }, 500);
+
+    /*   selectElement("region_id", user.province);
+    selectElement("region_id", user.province);
+    selectElement("region_id", user.province); */
+  };
+  function selectElement(id, valueToSelect) {
+    let element = document.getElementById(id);
+    console.log(element[0]);
+    element.value = valueToSelect;
+  }
   // console.log(selects[0]);
-  document.getElementById("region_id")[0].innerText = "111111";
-  console.log(document.getElementById("region_id")[0]);
+  // document.getElementById("region_id")[0].innerText = "111111";
+  // console.log(document.getElementById("region_id")[0]);
   // document.getElementById("region_id")[0].setAttribute("selected", "selected");
 } else {
   btnSave.addEventListener("click", () => {
@@ -23,28 +44,34 @@ if (JSON.parse(localStorage.getItem("info")) != null) {
       item.createAttribute("selected");
     }); */
     let id_user = JSON.parse(localStorage.getItem("userLoginCurrent")).id;
-    user = {
-      id_user: id_user,
-      lastName: inputs[0].value,
-      firstName: inputs[1].value,
-      phone: inputs[2].value,
-      province: select[0].title,
-      city: select[1].title,
-      ward: select[2].title,
-      addressHome: inputs[3].value,
-    };
+    if (checkEmptyInput(inputs[0]) == false) {
+      var is = checkLength(inputs[1], 3, 8);
+      user = {
+        id_user: id_user,
+        lastName: inputs[0].value,
+        firstName: inputs[1].value,
+        phone: inputs[2].value,
+        province: select[0].value,
+        city: select[1].value,
+        ward: select[2].value,
+        addressHome: inputs[3].value,
+      };
+      if (infoUser.length == 0) {
+        infoUser.push(user);
+      }
+      infoUser.forEach((item) => {
+        if (item.id_user !== user.id_user) {
+          infoUser.push(user);
+        }
+      });
+    } else {
+      console.log(1231312312);
+    }
+
     /* select[0].createAttribute("selected");
     select[1].createAttribute("selected");
     select[2].createAttribute("selected"); */
     //   console.log(document.querySelector("#region_id option:selected").html());
-    if (infoUser.length == 0) {
-      infoUser.push(user);
-    }
-    infoUser.forEach((item) => {
-      if (item.id_user !== user.id_user) {
-        infoUser.push(user);
-      }
-    });
 
     localStorage.setItem("info", JSON.stringify(user));
     console.log(infoUser);

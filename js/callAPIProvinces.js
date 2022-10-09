@@ -17,9 +17,9 @@ function handleData(data) {
   });
   eProvice.innerHTML = htmls;
 }
+
 eProvice.addEventListener("click", () => {
   let codeProvince = eProvice.value;
-  console.log(codeProvince);
   fetch(url + "d")
     .then((response) => response.json())
     .then((data) => {
@@ -29,7 +29,6 @@ eProvice.addEventListener("click", () => {
     const arr = data.filter((item) => {
       return item.province_code == codeProvince;
     });
-    console.log(arr);
     let htmls = `<option>Vui lòng chọn</option>`;
     arr.forEach((item) => {
       htmls += `
@@ -39,8 +38,7 @@ eProvice.addEventListener("click", () => {
     eDivision.innerHTML = htmls;
   }
   eDivision.addEventListener("click", () => {
-    codeDivision = eDivision.value;
-    console.log(codeDivision);
+    let codeDivision = eDivision.value;
     fetch(url + "w")
       .then((response) => response.json())
       .then((data) => {
@@ -50,7 +48,6 @@ eProvice.addEventListener("click", () => {
       const arr = data.filter((item) => {
         return item.district_code == codeDivision;
       });
-      console.log(arr);
       let htmls = `<option>Vui lòng chọn</option>`;
       arr.forEach((item) => {
         htmls += `

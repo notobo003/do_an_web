@@ -47,5 +47,6 @@ function renderTableOrders(userCart, date) {
         `;
 
     tableBody.innerHTML = htmls;
-  } 
+  }
 }
+

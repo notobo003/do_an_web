@@ -6,6 +6,10 @@
   text-decoration: none;
   box-sizing: border-box;
 }
+li,
+a {
+  cursor: pointer;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 6px;
@@ -45,7 +49,7 @@
 img {
   width: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 }
 .btn {
   display: inline-block;
@@ -379,6 +383,7 @@ header {
   border: 1px solid #000;
   text-align: center;
 }
+
 .header__login {
   position: relative;
   display: flex;
@@ -390,6 +395,7 @@ header {
 .header__login-icon,
 .header__login_avatar {
   display: none;
+  cursor: pointer;
 }
 .header__login-icon.show,
 .header__login_avatar.show {
@@ -406,6 +412,8 @@ header {
   min-width: 180px;
   text-align: center;
   border-radius: 10px;
+  z-index: 99;
+  overflow: hidden;
 }
 .header__login-user-menu li {
   padding: 5px;
@@ -485,6 +493,9 @@ header {
   position: relative;
   overflow-x: hidden;
 }
+.product__container.disable {
+  display: none;
+}
 .container__row-header {
   display: flex;
   justify-content: space-between;
@@ -542,7 +553,8 @@ header {
 }
 .container__row-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 .container__row-card-title {
   font-size: 15px;
@@ -608,6 +620,9 @@ header {
   margin-right: 7px;
   margin-bottom: 14px;
   transition: all 0.2s ease;
+}
+.card__img {
+  height: 240px;
 }
 .card:hover {
   /* padding: 8px 10px 5px; */

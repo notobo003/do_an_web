@@ -1,1 +1,1 @@
-https://notobo15.github.io/shop/
+https://notobo15.github.io/do_an-web/

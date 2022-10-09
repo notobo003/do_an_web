@@ -24,6 +24,8 @@ usersAccount = [
     pw: "123",
   },
 ];
+
+// su li doi mau chu va them line bottom khi click
 const formTitle = document.querySelectorAll(".login_form_header span");
 console.log(formTitle);
 formTitle.forEach((item) => {
@@ -36,7 +38,10 @@ formTitle.forEach((item) => {
     item.classList.add("active");
   });
 });
-const iconForm = document.querySelector(".header__login");
+
+const iconForm = document.querySelector(".header__login-btn-login");
+const registerIcon = document.querySelector(".header__login-btn-register");
+
 const form = document.querySelector(".login_form_content");
 const login = document.querySelector(".login_form_header-login");
 const register = document.querySelector(".login_form_header-register");
@@ -50,20 +55,31 @@ const inputPassAll = form.querySelectorAll("input[type='password']");
 const btnLogout = document.querySelector(".header__login-logout");
 const nameUser = document.querySelector(".header__login-name");
 let registerAccount = [];
+// LOG OUT
 btnLogout.addEventListener("click", () => {
   if (localStorage.getItem("userLoginCurrent") !== null) {
     localStorage.removeItem("userLoginCurrent");
     window.location.reload();
   }
 });
-function showFormLogin() {
-  form.classList.toggle("show");
-  formOverlay.classList.toggle("show");
-}
+// show form register
+registerIcon.addEventListener("click", () => {
+  iconForm.click();
+  register.click();
+});
+
+// show form login
 iconForm.addEventListener("click", showFormLogin);
 formBtnClose.addEventListener("click", () => {
   iconForm.click();
 });
+function showFormLogin() {
+  form.classList.toggle("show");
+  formOverlay.classList.toggle("show");
+  login.click();
+}
+
+// overlay
 formOverlay.addEventListener("click", () => {
   iconForm.click();
 });
@@ -94,6 +110,9 @@ loginContent.addEventListener("submit", (e) => {
     let isUserLength = checkLength(pass, 3, 8);
   }
   let getUserRegister = localStorage.getItem("registerAccount");
+  if (getUserRegister === null) {
+    getUserRegister = JSON.stringify([]);
+  }
   registerAccount = JSON.parse(getUserRegister);
   console.log(getUserRegister);
   const findUser = usersAccount.find((item) => {

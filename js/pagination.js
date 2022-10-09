@@ -1,171 +1,3 @@
-const books = [
-  {
-    id: 1,
-    author: "",
-    title:
-      "Muốn Thành Công Nói Không Với Trì Hoãn – 21 Nguyên Tắc Vàng Đập Tan Sự Trì Hoãn",
-    shortName: "muon thanh cong noi khong voi tri hoan",
-    srcImg: [
-      "./Images/books/1.jpg",
-      "./Images/books/1_1.jpg",
-      "./Images/books/1_2.jpg",
-      "./Images/books/1_3.jpg",
-    ],
-    price: 85200,
-    currentPrice: 10000,
-    description: "",
-  },
-  {
-    id: 2,
-    author: "",
-    title: "Thiên Tài Bên Trái, Kẻ Điên Bên Phải faf fasd(Tái Bản)",
-    shortName: "thien tai bai trai ke dien ben phai",
-    srcImg: [
-      "./Images/books/2.jpg",
-      "./Images/books/2.jpg",
-      "./Images/books/3.jpg",
-      "./Images/books/4.jpg",
-    ],
-    price: 85200,
-    currentPrice: 20000,
-  },
-  {
-    id: 3,
-    author: "Damon Zahariades",
-    title:
-      "Muốn Thành Công Nói Không Với Trì Hoãn – 21 Nguyên Tắc Vàng Đập Tan Sự Trì Hoãn",
-    shortName: "muon thanh cong noi khong voi tri hoan",
-    srcImg: [
-      "./Images/books/3.jpg",
-      "./Images/books/4.jpg",
-      "./Images/books/4.jpg",
-    ],
-    price: 85200,
-    currentPrice: 30000,
-  },
-  {
-    id: 4,
-    author: "Matthew Pollard, Derek Lewis",
-    title: "Nghệ Thuật Bán Hàng Của Người Hướng Nội",
-    shortName: "nghe thuat ban hang cua nguoi huong noi",
-
-    srcImg: ["./Images/books/4.jpg"],
-    price: 85200,
-    currentPrice: 40000,
-  },
-  {
-    id: 5,
-    author: "Stephen R. Covey",
-    title:
-      "7 Thói Quen Hiệu Quả (The 7 Habits Of Highly Effective People) (Tái Bản)",
-    shortName: "7(bay) thoi quen hieu qua",
-    srcImg: ["./Images/books/5.jpg"],
-    price: 85200,
-    currentPrice: 50000,
-  },
-  {
-    id: 6,
-    author: "Trác Nhã",
-    title: "Khéo Ăn Nói Sẽ Có Được Thiên Hạ ( Tái Bản )",
-    shortName: "kheo an noi se co duoc thien ha",
-    srcImg: ["./Images/books/6.jpg"],
-    price: 85200,
-    currentPrice: 50000,
-  },
-  {
-    id: 7,
-    author: "Adam Khoo",
-    title: "Tôi Tài Giỏi - Bạn Cũng Thế (Tái Bản 2020)",
-    shortName: "toi tai gioi ban cung the",
-    srcImg: ["./Images/books/7.jpg"],
-    price: 85200,
-    currentPrice: 50000,
-    description: "",
-  },
-  {
-    id: 8,
-    author: "Gino Wickman, Mark C. Winters",
-    title: "Người Có Tầm Nhìn, Kẻ Biết Hành Động",
-    shortName: "nguoi co tam nhin ke biet hanh dong",
-    srcImg: ["./Images/books/8.jpg"],
-    price: 85200,
-    currentPrice: 50000,
-  },
-  {
-    id: 9,
-    author: "Nancy Duarte",
-    title: "HBR Guide To – Trình Bày Thuyết Phục (Tái Bản 2018)",
-    shortName: "trinh bai thuyet phuc",
-    srcImg: ["./Images/books/9.jpg"],
-    price: 85200,
-    currentPrice: 50000,
-  },
-  {
-    id: 10,
-    author: "Prakash Iyer",
-    title: "Thói Quen Của Kẻ Thắng (Tái Bản 2018)",
-    shortName: "thoi quen cua ke thang",
-    srcImg: ["./Images/books/10.jpg"],
-    price: 85200,
-    currentPrice: 50000,
-  },
-  {
-    id: 11,
-    author: "Zoe McKey",
-    title: "Tư Duy Phản Biện",
-    shortName: "tu duy phan bien",
-    srcImg: ["./Images/books/11.jpg"],
-    price: 85200,
-    currentPrice: 50000,
-  },
-  {
-    id: 12,
-    author: "Scott H.Young",
-    title: "Rèn Luyện Kỹ Năng Phát Triển Bản Thân",
-    shortName: "ren luyen ky nang phap trien ban than",
-    srcImg: ["./Images/books/12.jpg"],
-    price: 85200,
-    currentPrice: 50000,
-  },
-  {
-    id: 13,
-    author: "nhieu tac gia",
-    title: "Thao túng tâm lý",
-    shortName: "thao tung tam ly",
-    srcImg: ["./Images/books/13.jpg"],
-    price: 85200,
-    currentPrice: 50000,
-    description: "",
-  },
-  {
-    id: 14,
-    author: "Carol S. Dweck",
-    title: "Tâm Lý Học Thành Công",
-    shortName: "tam ly hoc thanh cong",
-    srcImg: ["./Images/books/14.jpg"],
-    price: 85200,
-    currentPrice: 50000,
-  },
-  {
-    id: 15,
-    author: "Eran Katz",
-    title: "Trí Tuệ Do Thái (Tái Bản 2018)",
-    shortName: "tri tue do thai",
-    srcImg: ["./Images/books/15.jpg"],
-    price: 85200,
-    currentPrice: 50000,
-  },
-  {
-    id: 16,
-    author: "Tạ Quốc Kế",
-    title: "Điềm Tĩnh Và Nóng Giận",
-    shortName: "diem tinh va nong gian",
-    srcImg: ["./Images/books/16.jpg", "./Images/books/1.jpg"],
-    price: 85200,
-    currentPrice: 50000,
-  },
-];
-
 const container_content = document.querySelector(".container-content");
 const pagination_element = document.getElementById("pagination");
 
@@ -317,29 +149,13 @@ function showItemDetail(id) {
       const btnDown = document.querySelector(".cart__btn__down");
       const inputQuantity = document.querySelector(".cart__input__quantity");
       const btnUp = document.querySelector(".cart__btn__up");
-      
-      btnDown.addEventListener("click", () => {
-        inputQuantity.value--;
-      });
-      btnUp.addEventListener("click", () => {
-        inputQuantity.value++;
-      });
-      // quantityCounter(btnDown, inputQuantity, btnUp, item);
-      /* console.log(btnDown, btnUp);
 
-      var quantityCount = 1;
       btnDown.addEventListener("click", () => {
         inputQuantity.value--;
-        quantityCount--;
-        if (quantityCount <= 0) {
-          quantityCount = 0;
-          inputQuantity.value = 0;
-        }
       });
       btnUp.addEventListener("click", () => {
         inputQuantity.value++;
-        quantityCount++;
-      }); */
+      });
     }
   });
 
@@ -370,6 +186,13 @@ function Banner(status) {
     return banner.classList.remove("disable");
   }
 }
+function products_list(status) {
+  const productList = document.querySelector(".product__container");
+  if (status === "disable") return productList.classList.add("disable");
+  else {
+    return productList.classList.remove("disable");
+  }
+}
 function numberWithCommas(x) {
   var parts = x.toString().split(".");
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -390,10 +213,10 @@ inputSearch.addEventListener("keydown", (e) => {
   }
 });
 const btnSearchSubmit = document.querySelector(".header__search__btn");
-btnSearchSubmit.addEventListener("click", () => {
-  const inputSearchValue = document.querySelector(
-    ".header__search__input"
-  ).value;
+const container_header = document.querySelector(".container-header");
+
+inputSearch.addEventListener("input", (e) => {
+  const inputSearchValue = inputSearch.value;
   console.log(inputSearchValue);
   let searchItems = books.filter((item) => {
     return item.title
@@ -402,19 +225,37 @@ btnSearchSubmit.addEventListener("click", () => {
   });
   console.log(searchItems);
   Banner("disable");
+  products_list("disable");
+
   if (searchItems.length === 0) {
     container_content.innerHTML = `
       <div class="search__no-result-found">
           <p>Xin lỗi 😔 không có kểt quả với:<h3>${inputSearchValue}</h3></p>
-          
-          <img class="search__no-result-found__img" src="./Images/no_result_found.png" alt="">
+          <img class="search__no-result-found__img" src="./images/no_result_found.png" alt="">
       </div>
     `;
-    pagination_element.classList.add("disable");
+    pagination_element.style.display = "none";
+    container_header.innerHTML = "";
   } else {
-    pagination_element.classList.remove("disable");
+    toolbarForm.style.display = "block";
+    const btnSearch = document.querySelector(".toolbar__search-icon");
 
+    btnSearch.style.display = "none";
+    container_header.innerHTML = `Có ${searchItems.length} kết quả tìm kiếm với: <b>${inputSearchValue}</b>`;
+    container_content.style.display = "flex";
+    pagination_element.style.display = "flex";
     DisplayList(searchItems, rows, current_page);
     SetupPagination(searchItems, pagination_element, rows);
+
+    const btnB = document.querySelector(".controler");
+    btnB.addEventListener("click", () => {
+      Banner("show");
+      products_list("show");
+      inputSearch.value = "";
+      toolbarForm.style.display = "none";
+      container_content.style.display = "none";
+      pagination_element.style.display = "none";
+      document.querySelector(".container-header").style.display = "none";
+    });
   }
 });
