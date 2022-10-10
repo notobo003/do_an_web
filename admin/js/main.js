@@ -43,6 +43,8 @@ function handleShow(name) {
 }
 
 const categoryTbody = document.querySelector(".category table tbody");
+const customersTbody = document.querySelector(".customers table tbody");
+const ordersTbody = document.querySelector(".orders table tbody");
 function render(arr, eTbody) {
   let htmls = "";
   arr.forEach((item) => {
@@ -70,4 +72,49 @@ function render(arr, eTbody) {
   });
   eTbody.innerHTML = htmls;
 }
+
+function renderCustomers(arr, eTbody) {
+  let htmls = "";
+  arr.forEach((item, indx) => {
+    htmls += `
+    <tr>
+      <td>${++indx}</td>
+      <td>${item.id}</td>
+      <td>${item.user_name}</td>
+      <td>${item.pw}</td>
+      <td>${item.full_name}</td>
+      <td>${item.email}</td>
+      <td>${item.phone}</td>
+      <td>${item.address}</td>
+      <td>${item.create_date}</td>
+      <td>${item.isActive}</td>
+      
+  </tr>
+    `;
+  });
+  eTbody.innerHTML = htmls;
+}
+function renderOrders(arr, eTbody) {
+  let htmls = "";
+  arr.forEach((item, indx) => {
+    htmls += `
+    <tr>
+      <td>${++indx}</td>
+      <td>${item.order_id}</td>
+      <td>${item.user_name}</td>
+      <td>${item.full_name}</td>
+      <td>${item.phone}</td>
+      <td>${item.details}</td>
+      <td>${item.address_delivery}</td>
+      <td>${item.order_date}</td>
+      <td>${item.total_price}</td>
+      <td>${item.isConfirm}</td>
+      
+  </tr>
+    `;
+  });
+  eTbody.innerHTML = htmls;
+}
 render(books, categoryTbody);
+renderCustomers(usersAccount, customersTbody);
+renderOrders(ordersUsers, ordersTbody);

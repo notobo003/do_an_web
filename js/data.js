@@ -692,3 +692,52 @@ var books = [
       "PGS. TS. Đinh Phi Hổ là giảng viên chính tại trường Đại học Kinh tế TP. Hồ Chí Minh và là giảng viên thỉnh giảng các môn học Kinh tế vĩ mô, Kinh tế vi mô, Kinh tế phát triển, Kinh tế nông nghiệp và Phương pháp nghiên cứu kinh tế cho các chương trình sau đại học của các trường ĐH Ngân hàng",
   },
 ];
+var usersAccount = [
+  {
+    id: "1",
+    user_name: "user1",
+    pw: "123",
+    full_name: "Nguyen Van A",
+    email: "user1@gmail.com",
+    phone: "0123456789",
+    address: "Tan Tru, Long An",
+    create_date: "1/1/2022",
+    isActive: true,
+  },
+  {
+    id: "2",
+    user_name: "user2",
+    pw: "123",
+    full_name: "Nguyen Van C",
+    email: "user1@gmail.com",
+    phone: "0123456789",
+    address: "Tan Tru, Long An",
+    create_date: "1/1/2022",
+    isActive: true,
+  },
+];
+
+var ordersUsers = [
+  {
+    order_id: 123,
+    user_name: "user2",
+    full_name: "Nguyen Van C",
+    phone: "0123456789",
+    details: "Pizza Hải Sản Nhiệt Đới(x1)<br/> Mỳ Ý Cay Hải Sản (x1)",
+    address_delivery: "HCM",
+    order_date: "10/10/2022",
+    total_price: 123000,
+    isConfirm: false,
+  },
+  {
+    order_id: 123,
+    user_name: "user2",
+    full_name: "Nguyen Van C",
+    phone: "0123456789",
+    details: "",
+    address_delivery: "HCM",
+    order_date: "10/10/2022",
+    total_price: 123000,
+    isConfirm: false,
+  },
+];

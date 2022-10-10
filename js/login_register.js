@@ -2,9 +2,8 @@ usersAccount = [
   {
     id: "user1",
     pw: "123",
-    email: "",
-    cart: [],
-    phone: "",
+    email: "user1@gmail.com",
+    phone: "0123456789",
     address: "",
   },
   {
@@ -22,6 +21,12 @@ usersAccount = [
   {
     id: "user5",
     pw: "123",
+  },
+];
+let adminAccount = [
+  {
+    id: "admin",
+    pw: "admin",
   },
 ];
 
@@ -109,6 +114,11 @@ loginContent.addEventListener("submit", (e) => {
   if (checkEmptyInput(pass) == false) {
     let isUserLength = checkLength(pass, 3, 8);
   }
+  adminAccount.forEach((item) => {
+    if (item.id === username.value && item.pw === pass.value) {
+      window.location.assign("./admin/index.html");
+    }
+  });
   let getUserRegister = localStorage.getItem("registerAccount");
   if (getUserRegister === null) {
     getUserRegister = JSON.stringify([]);
