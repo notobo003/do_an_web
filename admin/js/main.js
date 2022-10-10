@@ -53,7 +53,7 @@ function render(arr, eTbody) {
     <td>${item.id}</td>
     <td>
     <img src=".${item.srcImg[0]}" alt=""></td>
-    <td>.${item.title}</td>
+    <td>${item.title}</td>
     <td>${item.description}</td>
     <td>${item.currentPrice}</td>
     <td>
@@ -118,3 +118,14 @@ function renderOrders(arr, eTbody) {
 render(books, categoryTbody);
 renderCustomers(usersAccount, customersTbody);
 renderOrders(ordersUsers, ordersTbody);
+
+const logoutBtn = document.querySelector(".logout__btn");
+logoutBtn.addEventListener("click", () => {
+  if (confirm("Bạn có chắc chắn muốn thoát ?")) {
+    localStorage.removeItem("userLoginCurrent");
+    window.location.assign("../index.html");
+  }
+});
+
+let user = JSON.parse(localStorage.getItem("userLoginCurrent"));
+console.log(user);

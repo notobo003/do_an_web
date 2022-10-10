@@ -1,4 +1,4 @@
-usersAccount = [
+/* usersAccount = [
   {
     id: "user1",
     pw: "123",
@@ -28,8 +28,66 @@ let adminAccount = [
     id: "admin",
     pw: "admin",
   },
+]; */
+var usersAccount = [
+  {
+    id: "1",
+    user_name: "admin1",
+    pw: "123",
+    full_name: "Nguyen Van A",
+    email: "user1@gmail.com",
+    phone: "0123456789",
+    address: "Phường Phước Long A Quận 9 Thành phố Hồ Chí Minh",
+    create_date: "1/1/2022",
+    isActive: true,
+  },
+  {
+    id: "2",
+    user_name: "user2",
+    pw: "123",
+    full_name: "Nguyen Van B",
+    email: "user1@gmail.com",
+    phone: "0123456789",
+    address: "Phường Phước Long B Quận 9 Thành phố Hồ Chí Minh",
+    create_date: "1/1/2022",
+    isActive: true,
+  },
+  {
+    id: "3",
+    user_name: "user3",
+    pw: "123",
+    full_name: "Nguyen Van C",
+    email: "user1@gmail.com",
+    phone: "0123456789",
+    address: "Phường Phước Long A Quận 9 Thành phố Hồ Chí Minh",
+    create_date: "1/1/2022",
+    isActive: true,
+  },
+  {
+    id: "4",
+    user_name: "user4",
+    pw: "123",
+    full_name: "Nguyen Van D",
+    email: "user1@gmail.com",
+    phone: "0123456789",
+    address: "Phường Phước Long A Quận 9 Thành phố Hồ Chí Minh",
+    create_date: "1/1/2022",
+    isActive: true,
+  },
+  {
+    id: "5",
+    user_name: "user5",
+    pw: "123",
+    full_name: "Nguyen Van E",
+    email: "user1@gmail.com",
+    phone: "0123456789",
+    address: "Phường Phước Long A Quận 9 Thành phố Hồ Chí Minh",
+    create_date: "1/1/2022",
+    isActive: true,
+  },
 ];
-
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelector.bind(document);
 // su li doi mau chu va them line bottom khi click
 const formTitle = document.querySelectorAll(".login_form_header span");
 console.log(formTitle);
@@ -59,6 +117,9 @@ const formOverlay = document.querySelector(".form_overlay");
 const inputPassAll = form.querySelectorAll("input[type='password']");
 const btnLogout = document.querySelector(".header__login-logout");
 const nameUser = document.querySelector(".header__login-name");
+
+const linkAdmin = $(".header__login-go-to-admin");
+
 let registerAccount = [];
 // LOG OUT
 btnLogout.addEventListener("click", () => {
@@ -88,6 +149,7 @@ function showFormLogin() {
 formOverlay.addEventListener("click", () => {
   iconForm.click();
 });
+var adminAccount = ["admin1", "admin2", "admin3"];
 
 if (localStorage.getItem("userLoginCurrent") !== null) {
   console.log("da dang nhap");
@@ -96,8 +158,17 @@ if (localStorage.getItem("userLoginCurrent") !== null) {
   avatarUser.classList.add("show");
   iconLogin.classList.remove("show");
   avatarUser.classList.add("show");
-  nameUser.innerText = JSON.parse(localStorage.getItem("userLoginCurrent")).id;
+  nameUser.innerText = JSON.parse(
+    localStorage.getItem("userLoginCurrent")
+  ).user_name;
   iconForm.removeEventListener("click", showFormLogin);
+  adminAccount.forEach((item) => {
+    if (
+      item === JSON.parse(localStorage.getItem("userLoginCurrent")).user_name
+    ) {
+      return linkAdmin.classList.add("show");
+    }
+  });
 } else {
   console.log("chua dang nhap");
 }
@@ -114,11 +185,11 @@ loginContent.addEventListener("submit", (e) => {
   if (checkEmptyInput(pass) == false) {
     let isUserLength = checkLength(pass, 3, 8);
   }
-  adminAccount.forEach((item) => {
+  /* let findAdmin = adminAccount.forEach((item) => {
     if (item.id === username.value && item.pw === pass.value) {
       window.location.assign("./admin/index.html");
     }
-  });
+  }); */
   let getUserRegister = localStorage.getItem("registerAccount");
   if (getUserRegister === null) {
     getUserRegister = JSON.stringify([]);
@@ -126,32 +197,38 @@ loginContent.addEventListener("submit", (e) => {
   registerAccount = JSON.parse(getUserRegister);
   console.log(getUserRegister);
   const findUser = usersAccount.find((item) => {
+    return item.user_name === username.value && item.pw === pass.value;
+  });
+  /*   const findUserByRegister = registerAccount.find((item) => {
     return item.id === username.value && item.pw === pass.value;
   });
-  const findUserByRegister = registerAccount.find((item) => {
-    return item.id === username.value && item.pw === pass.value;
-  });
-  console.log(findUser, findUserByRegister);
-  if (findUser || findUserByRegister) {
+ */
+  // if (findUser || findUserByRegister) {
+  if (findUser) {
     localStorage.setItem(
       "userLoginCurrent",
-      findUser !== undefined
-        ? JSON.stringify(findUser)
-        : JSON.stringify(findUserByRegister)
+      // findUser !== undefined ? JSON.stringify(findUser): JSON.stringify(findUserByRegister);
+      findUser !== undefined ? JSON.stringify(findUser) : null
     );
     alert("Đăng nhập thành công");
     nameUser.innerText = username.value;
     iconForm.click();
-    console.log(iconForm);
-    iconForm.removeEventListener("click", showFormLogin);
-    const userInfo = document.querySelector(".header_user_info");
+    // console.log(iconForm);
+    // iconForm.removeEventListener("click", showFormLogin);
+    // const userInfo = document.querySelector(".header_user_info");
     const iconLogin = document.querySelector(".header__login-icon");
     const avatarUser = document.querySelector(".header__login_avatar");
     /*   iconLogin.style.display = "none";
     avatarUser.style.display = "inline-block"; */
     avatarUser.classList.add("show");
     iconLogin.classList.remove("show");
-    avatarUser.classList.add("show");
+    linkAdmin.classList.remove("show");
+    console.log(linkAdmin);
+    adminAccount.forEach((item) => {
+      if (item === username.value) {
+        return linkAdmin.classList.add("show");
+      }
+    });
   } else {
     alert("Đăng nhập khong dung");
     resetInput([username, pass]);

@@ -8,6 +8,7 @@
 }
 li,
 a {
+  color: #000;
   cursor: pointer;
 }
 /* width */
@@ -415,6 +416,13 @@ header {
   z-index: 99;
   overflow: hidden;
 }
+/* link go to admin */
+.header__login-go-to-admin {
+  display: none;
+}
+.header__login-go-to-admin.show {
+  display: block;
+}
 .header__login-user-menu li {
   padding: 5px;
 }
@@ -621,7 +629,8 @@ header {
   margin-bottom: 14px;
   transition: all 0.2s ease;
 }
-.card__img {
+.card__img,
+.container__row-card img {
   height: 240px;
 }
 .card:hover {

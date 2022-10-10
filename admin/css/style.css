@@ -495,6 +495,9 @@ th {
   border: 1px solid #ccc;
   padding: 5px;
   overflow: hidden;
+  /* display: -webkit-box; */
+  /* -webkit-line-clamp: 2; */
+  /* -webkit-box-orient: vertical; */
 }
 table img {
   width: 100%;
