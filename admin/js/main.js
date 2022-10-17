@@ -1,3 +1,10 @@
+if (localStorage.getItem("userLoginCurrent") != null) {
+  alert("chao mung den admin");
+} else {
+  alert("ban chua dang nhap");
+  window.location.assign("../index.html");
+}
+
 // add hovered class to selected list item
 let list = document.querySelectorAll(".navigation li");
 
@@ -32,6 +39,7 @@ category.addEventListener("click", () => {
 customers.addEventListener("click", () => {
   handleShow("customers");
 });
+
 function handleShow(name) {
   const listTable = document.querySelectorAll(".center");
   listTable.forEach((item) => {
@@ -115,9 +123,13 @@ function renderOrders(arr, eTbody) {
   });
   eTbody.innerHTML = htmls;
 }
+
+const or = JSON.parse(localStorage.getItem("orders"));
+// console.log(ordersUsers);
+
 render(books, categoryTbody);
 renderCustomers(usersAccount, customersTbody);
-renderOrders(ordersUsers, ordersTbody);
+renderOrders(or , ordersTbody);
 
 const logoutBtn = document.querySelector(".logout__btn");
 logoutBtn.addEventListener("click", () => {
@@ -128,4 +140,4 @@ logoutBtn.addEventListener("click", () => {
 });
 
 let user = JSON.parse(localStorage.getItem("userLoginCurrent"));
-console.log(user);
+// console.log(user);

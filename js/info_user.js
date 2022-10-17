@@ -1,4 +1,4 @@
-let infoUser = [];
+var infoUser = [];
 const formInfo = document.querySelector(".info__container > form");
 const inputs = formInfo.querySelectorAll("input");
 const btnSave = document.querySelector(".form__info-btn-save > button");

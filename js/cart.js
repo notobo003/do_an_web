@@ -1,4 +1,6 @@
 let userCart = [];
+let orderAll = [];
+
 console.log(userCart);
 const itemsCart = document.querySelector(".list__cart");
 const cartBtnClose = document.querySelector(".cart__btnClose");
@@ -6,10 +8,10 @@ const cartOverlay = document.querySelector(".cart__overlay");
 const cart = document.querySelector(".cart");
 const cartItems = document.querySelector(".cart__items");
 
-console.log(itemsCart);
-console.log(cartBtnClose);
-console.log(cart);
-console.log(cartItems);
+// console.log(itemsCart);
+// console.log(cartBtnClose);
+// console.log(cart);
+// console.log(cartItems);
 cart.addEventListener("click", () => {
   itemsCart.classList.toggle("show");
   cartOverlay.classList.toggle("show");
@@ -26,25 +28,28 @@ function getIdCart(id) {
   const input = document.querySelector(".cart__input__quantity");
   const btnReduce = document.querySelector(".cart__btn__down");
   const inpuRaise = document.querySelector(".cart__btn__up");
+
+  /*   btnReduce.addEventListener("click", () => {
+    input.value--;
+    console.log(ordersById);
+  });
+  inpuRaise.addEventListener("click", () => {
+    input.value++;
+    console.log(ordersById);
+  }); */
   let productsUser = {
     id: id,
     quantity: +input.value,
   };
-  btnReduce.addEventListener("click", () => {
-    input.value--;
-  });
-  inpuRaise.addEventListener("click", () => {
-    input.value++;
-  });
   ordersById.push(productsUser);
-  console.log(ordersById);
+  // console.log(ordersById);
   const b = books.filter((item) => {
     return ordersById.find((pro) => {
       item.quantity = pro.quantity;
       return pro.id === item.id;
     });
   });
-  console.log(b);
+  // console.log(b);
   var cartItem = books.find((item) => {
     return item.id === id;
   });
@@ -104,13 +109,50 @@ function getIdCart(id) {
 
   const btnOrder = document.querySelector(".cart__btnOrder");
   btnOrder.addEventListener("click", () => {
+    // alert("Đặt hàng thành công");
+
     let date = new Date();
     let dateOrder = `${date.getDate()}/${
       date.getMonth() + 1
     }/${date.getFullYear()}:${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-    console.log(dateOrder);
-    renderTableOrders(userCart, dateOrder);
-    alert("Đặt hàng thành công");
+    console.log(userCart);
+    // c(userCart, dateOrder);
+    console.log(ordersById);
+    let orderID = 1;
+    let productDetails = "";
+    userCart.forEach((item) => {
+      return (productDetails += `${item.title}(x${item.quantity})<br/>`);
+    });
+    const p = userCart.reduce((total, item) => {
+      return (total += item.currentPrice * item.quantity);
+    }, 0);
+    // console.log(p);
+    // console.log(productDetails);
+    let info = JSON.parse(localStorage.getItem("info"));
+    let infoAcc = JSON.parse(localStorage.getItem("userLoginCurrent"));
+    console.log(info);
+    /*   */
+    const order = {
+      order_id: orderID++,
+      details: productDetails,
+      user_name: infoAcc.user_name,
+      full_name: `${info.lastName} ${info.firstName}`,
+      phone: info.phone,
+      order_date: dateOrder,
+      total_price: p,
+      isConfirm: "false",
+    };
+    if (orderAll.length == 0) {
+      orderAll.push(order);
+    } else {
+      orderAll = JSON.parse(localStorage.getItem("orders"));
+      orderAll.push(order);
+    }
+    localStorage.setItem("orders", JSON.stringify(orderAll));
+    console.log(userCart);
+    userCart = [];
+    
+    console.log(order);
     cart.click();
   });
 }
@@ -201,6 +243,7 @@ function renderMoneyCurrent(list) {
   return moneyTotal;
 }
 const cartItemList = document.querySelector(".cart__items");
+
 function renderCart(userCart) {
   let moneyCount = 0;
   let htmls = "";
@@ -252,7 +295,7 @@ function renderCart(userCart) {
   const btnInput = document.querySelector(".cart__input");
   const deleteItemsCart = document.querySelectorAll(".cart__item__trash");
   const priceTotal = document.querySelector(".cart__total > p");
-  console.log(priceTotal);
+  // console.log(priceTotal);
   const btnDown = document.querySelectorAll(".cart__btn-down");
   const inputQuantity = document.querySelectorAll(".cart__input");
   const btnUp = document.querySelectorAll(".cart__btn-up");
@@ -264,32 +307,33 @@ function renderCart(userCart) {
     });
     return s;
   }
-  console.log(btnDown);
-  console.log(inputQuantity);
-  console.log(btnUp);
+  // console.log(btnDown);
+  // console.log(inputQuantity);
+  // console.log(btnUp);
   userCart.forEach((item, index) => {
     if (inputQuantity[index].value == 1) {
       btnDown[index].classList.add("disable");
     }
     btnDown[index].addEventListener("click", () => {
-      if (inputQuantity[index].value == 1) {
-        btnDown[index].classList.add("disable");
-      } else if (inputQuantity[index].value == 2) {
-        inputQuantity[index].value--;
-        item.quantity--;
-        btnDown[index].classList.add("disable");
+      if (inputQuantity[index].value <= 1) {
+        inputQuantity[index].value = 1;
+        // btnDown[index].classList.add("disable");
       } else {
         inputQuantity[index].value--;
-        item.quantity--;
+        ordersById[index].quantity--;
+        console.log(ordersById);
+        // item.quantity--;
       }
-      console.log(sumPriceTotal(userCart));
+      // console.log(sumPriceTotal(userCart));
       priceTotal.innerHTML = `${numbertoVND(sumPriceTotal(userCart))}`;
     });
     btnUp[index].addEventListener("click", () => {
-      btnDown[index].classList.remove("disable");
-
+      ordersById[index].quantity++;
       inputQuantity[index].value++;
-      item.quantity++;
+      console.log(ordersById);
+      // btnDown[index].classList.remove("disable");
+
+      // item.quantity++;
       priceTotal.innerHTML = `${numbertoVND(sumPriceTotal(userCart))}`;
     });
   });

@@ -145,13 +145,17 @@ function showItemDetail(id) {
         modal.classList.remove("show");
         // body.classList.remove("show");
       });
-
+      // btn down up quantity
       const btnDown = document.querySelector(".cart__btn__down");
       const inputQuantity = document.querySelector(".cart__input__quantity");
       const btnUp = document.querySelector(".cart__btn__up");
-
+      console.log(btnDown, inputQuantity, btnUp);
       btnDown.addEventListener("click", () => {
-        inputQuantity.value--;
+        if (inputQuantity.value <= 1) {
+          inputQuantity.value = 1;
+        } else {
+          inputQuantity.value--;
+        }
       });
       btnUp.addEventListener("click", () => {
         inputQuantity.value++;
