@@ -67,7 +67,7 @@ function getIdCart(id) {
 
   if (userCart.length > 0) {
     noCart.classList.add("disable");
-    noCart.classList.add("show");
+    // noCart.classList.add("show");
     cartItems.classList.add("show");
   }
   renderCart(b);
@@ -151,8 +151,8 @@ function getIdCart(id) {
     localStorage.setItem("orders", JSON.stringify(orderAll));
     console.log(userCart);
     userCart = [];
-    
-    console.log(order);
+    noCart.classList.remove("disable");
+    cartItemList.classList.remove("show");
     cart.click();
   });
 }
@@ -258,7 +258,6 @@ function renderCart(userCart) {
       <div class="cart__item__quantity">
         <button class="cart__btn-down">
           <img
-            
             src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-remove.svg"
             alt="remove-icon"
           />
@@ -266,7 +265,6 @@ function renderCart(userCart) {
         <input type="text" class="cart__input" value="${item.quantity}" />
         <button class="cart__btn-up">
           <img
-            
             src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-add.svg"
             alt="add-icon"
           />
