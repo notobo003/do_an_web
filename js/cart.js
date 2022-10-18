@@ -1,5 +1,4 @@
 let userCart = [];
-let orderAll = [];
 
 console.log(userCart);
 const itemsCart = document.querySelector(".list__cart");
@@ -7,6 +6,9 @@ const cartBtnClose = document.querySelector(".cart__btnClose");
 const cartOverlay = document.querySelector(".cart__overlay");
 const cart = document.querySelector(".cart");
 const cartItems = document.querySelector(".cart__items");
+const cartItemList = document.querySelector(".cart__items");
+
+const cartCount = document.querySelector(".cart__counter");
 
 // console.log(itemsCart);
 // console.log(cartBtnClose);
@@ -23,7 +25,9 @@ cartOverlay.addEventListener("click", () => {
   cart.click();
 });
 let ordersById = [];
-
+if (localStorage.getItem("orders") == null) {
+  localStorage.setItem("orders", JSON.stringify([]));
+}
 function getIdCart(id) {
   const input = document.querySelector(".cart__input__quantity");
   const btnReduce = document.querySelector(".cart__btn__down");
@@ -70,7 +74,9 @@ function getIdCart(id) {
     // noCart.classList.add("show");
     cartItems.classList.add("show");
   }
+
   renderCart(b);
+
   const modal = document.querySelector("#modal");
   const modalOverlay = document.querySelector(".modal-overlay");
   modal.classList.remove("show");
@@ -109,51 +115,55 @@ function getIdCart(id) {
 
   const btnOrder = document.querySelector(".cart__btnOrder");
   btnOrder.addEventListener("click", () => {
-    // alert("Đặt hàng thành công");
-
-    let date = new Date();
-    let dateOrder = `${date.getDate()}/${
-      date.getMonth() + 1
-    }/${date.getFullYear()}:${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-    console.log(userCart);
-    // c(userCart, dateOrder);
-    console.log(ordersById);
-    let orderID = 1;
-    let productDetails = "";
-    userCart.forEach((item) => {
-      return (productDetails += `${item.title}(x${item.quantity})<br/>`);
-    });
-    const p = userCart.reduce((total, item) => {
-      return (total += item.currentPrice * item.quantity);
-    }, 0);
-    // console.log(p);
-    // console.log(productDetails);
-    let info = JSON.parse(localStorage.getItem("info"));
-    let infoAcc = JSON.parse(localStorage.getItem("userLoginCurrent"));
-    console.log(info);
-    /*   */
-    const order = {
-      order_id: orderID++,
-      details: productDetails,
-      user_name: infoAcc.user_name,
-      full_name: `${info.lastName} ${info.firstName}`,
-      phone: info.phone,
-      order_date: dateOrder,
-      total_price: p,
-      isConfirm: "false",
-    };
-    if (orderAll.length == 0) {
-      orderAll.push(order);
+    if (localStorage.getItem("userLoginCurrent") == null) {
+      alert("Dăng nhập để đặt hàng");
+      cartBtnClose.click();
+      log;
     } else {
-      orderAll = JSON.parse(localStorage.getItem("orders"));
+      alert("Đặt hàng thành công");
+      cartCount.innerHTML = 0;
+      let date = new Date();
+      let dateOrder = `${date.getDate()}/${
+        date.getMonth() + 1
+      }/${date.getFullYear()}:${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+      console.log(userCart);
+      // c(userCart, dateOrder);
+      console.log(ordersById);
+      let orderID = 1;
+      let productDetails = "";
+      userCart.forEach((item) => {
+        return (productDetails += `${item.title}(x${item.quantity})<br/>`);
+      });
+      const p = userCart.reduce((total, item) => {
+        return (total += item.currentPrice * item.quantity);
+      }, 0);
+      // console.log(p);
+      // console.log(productDetails);
+      let info = JSON.parse(localStorage.getItem("info"));
+      let infoAcc = JSON.parse(localStorage.getItem("userLoginCurrent"));
+      console.log(info);
+      /*   */
+      const order = {
+        order_id: orderID++,
+        details: productDetails,
+        user_name: infoAcc.user_name,
+        full_name: `${info.lastName} ${info.firstName}`,
+        phone: info.phone,
+        order_date: dateOrder,
+        address_delivery: "Giao Hàng Nhanh",
+        total_price: p,
+        isConfirm: "false",
+      };
+      const orderAll = JSON.parse(localStorage.getItem("orders"));
       orderAll.push(order);
+      localStorage.setItem("orders", JSON.stringify(orderAll));
+      userCart = [];
+      ordersById = [];
+      cartItems.innerHTML = "";
+      noCart.classList.remove("disable");
+      cartItemList.classList.remove("show");
+      cart.click();
     }
-    localStorage.setItem("orders", JSON.stringify(orderAll));
-    console.log(userCart);
-    userCart = [];
-    noCart.classList.remove("disable");
-    cartItemList.classList.remove("show");
-    cart.click();
   });
 }
 
@@ -196,7 +206,6 @@ function deleteItem(eDelete, id) {
       if (i.id === id) {
         console.log(indx);
         userCart.splice(indx, 1);
-        const cartCount = document.querySelector(".cart__counter");
         cartCount.innerText = userCart.length;
       }
     });
@@ -242,7 +251,6 @@ function renderMoneyCurrent(list) {
   }
   return moneyTotal;
 }
-const cartItemList = document.querySelector(".cart__items");
 
 function renderCart(userCart) {
   let moneyCount = 0;

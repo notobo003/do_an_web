@@ -1,5 +1,5 @@
 if (localStorage.getItem("userLoginCurrent") != null) {
-  alert("chao mung den admin");
+  // alert("chao mung den admin");
 } else {
   alert("ban chua dang nhap");
   window.location.assign("../index.html");
@@ -116,7 +116,7 @@ function renderOrders(arr, eTbody) {
       <td>${item.address_delivery}</td>
       <td>${item.order_date}</td>
       <td>${item.total_price}</td>
-      <td>${item.isConfirm}</td>
+      <td> <input type="checkbox"></td>
       
   </tr>
     `;
@@ -129,7 +129,7 @@ const or = JSON.parse(localStorage.getItem("orders"));
 
 render(books, categoryTbody);
 renderCustomers(usersAccount, customersTbody);
-renderOrders(or , ordersTbody);
+renderOrders(or, ordersTbody);
 
 const logoutBtn = document.querySelector(".logout__btn");
 logoutBtn.addEventListener("click", () => {
