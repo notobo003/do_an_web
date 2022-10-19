@@ -66,10 +66,10 @@ function render(arr, eTbody) {
     <td>${item.currentPrice}</td>
     <td>
         <div class="toolkit">
-            <div class="edit">
+            <div class="edit" onclick="editById(${item.id})">
                 <i class="fa-solid fa-wrench"></i>
             </div>
-            <div class="edit">
+            <div class="delete" onclick="deleteById(${item.id})"> 
                 <i class="fa-solid fa-trash"></i>
             </div>
 
@@ -141,3 +141,31 @@ logoutBtn.addEventListener("click", () => {
 
 let user = JSON.parse(localStorage.getItem("userLoginCurrent"));
 // console.log(user);
+
+const edit = document.querySelectorAll(".toolkit .edit");
+const deleteProduct = document.querySelectorAll(".toolkit .delete");
+/* console.log(edit, deleteProduct);
+edit.addEventListener("click", () => {});
+
+deleteProduct.addEventListener("click", () => {});
+ */
+function deleteById(id) {
+  // renderOrders(or, ordersTbody);
+  let index = books.findIndex((item) => {
+    return item.id == id;
+  });
+  console.log(index);
+  books.splice(index, 1);
+  render(books, categoryTbody);
+  console.log(id);
+}
+function renderEdit() {}
+function editById(id) {
+  // renderOrders(or, ordersTbody);
+  let item = books.find((item) => {
+    return item.id == id;
+  });
+  console.log(item);
+
+  // render(books, categoryTbody);
+}
