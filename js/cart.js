@@ -355,12 +355,3 @@ function renderCart(userCart) {
   console.log(productsUser); */
 }
 
-function numberWithCommas(x) {
-  var parts = x.toString().split(".");
-  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  let result = parts.join(",");
-  return result;
-}
-function numbertoVND(x) {
-  return numberWithCommas(x) + " đ";
-}

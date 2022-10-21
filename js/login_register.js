@@ -29,63 +29,7 @@ let adminAccount = [
     pw: "admin",
   },
 ]; */
-var usersAccount = [
-  {
-    id: "1",
-    user_name: "admin1",
-    pw: "123",
-    full_name: "Nguyen Van A",
-    email: "user1@gmail.com",
-    phone: "0123456789",
-    address: "Phường Phước Long A Quận 9 Thành phố Hồ Chí Minh",
-    create_date: "1/1/2022",
-    isActive: true,
-  },
-  {
-    id: "2",
-    user_name: "user2",
-    pw: "123",
-    full_name: "Nguyen Van B",
-    email: "user1@gmail.com",
-    phone: "0123456789",
-    address: "Phường Phước Long B Quận 9 Thành phố Hồ Chí Minh",
-    create_date: "1/1/2022",
-    isActive: true,
-  },
-  {
-    id: "3",
-    user_name: "user3",
-    pw: "123",
-    full_name: "Nguyen Van C",
-    email: "user1@gmail.com",
-    phone: "0123456789",
-    address: "Phường Phước Long A Quận 9 Thành phố Hồ Chí Minh",
-    create_date: "1/1/2022",
-    isActive: true,
-  },
-  {
-    id: "4",
-    user_name: "user4",
-    pw: "123",
-    full_name: "Nguyen Van D",
-    email: "user1@gmail.com",
-    phone: "0123456789",
-    address: "Phường Phước Long A Quận 9 Thành phố Hồ Chí Minh",
-    create_date: "1/1/2022",
-    isActive: true,
-  },
-  {
-    id: "5",
-    user_name: "user5",
-    pw: "123",
-    full_name: "Nguyen Van E",
-    email: "user1@gmail.com",
-    phone: "0123456789",
-    address: "Phường Phước Long A Quận 9 Thành phố Hồ Chí Minh",
-    create_date: "1/1/2022",
-    isActive: true,
-  },
-];
+
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelector.bind(document);
 // su li doi mau chu va them line bottom khi click
@@ -172,6 +116,8 @@ if (localStorage.getItem("userLoginCurrent") !== null) {
 } else {
   console.log("chua dang nhap");
 }
+
+/* LOGIN */
 loginContent.addEventListener("submit", (e) => {
   e.preventDefault();
   const username = loginContent.querySelector("input[type='text']");
@@ -204,14 +150,19 @@ loginContent.addEventListener("submit", (e) => {
   });
  */
   // if (findUser || findUserByRegister) {
-  if (findUser) {
+  if (findUser || registerAccount) {
     localStorage.setItem(
       "userLoginCurrent",
       // findUser !== undefined ? JSON.stringify(findUser): JSON.stringify(findUserByRegister);
-      findUser !== undefined ? JSON.stringify(findUser) : null
+      findUser !== undefined
+        ? JSON.stringify(findUser)
+        : JSON.stringify(registerAccount)
     );
+    console.log(JSON.parse(localStorage.getItem("userLoginCurrent")).user_name);
     alert("Đăng nhập thành công");
-    nameUser.innerText = username.value;
+    nameUser.innerText = JSON.parse(
+      localStorage.getItem("userLoginCurrent")
+    ).user_name;
     iconForm.click();
     // console.log(iconForm);
     // iconForm.removeEventListener("click", showFormLogin);
@@ -235,7 +186,7 @@ loginContent.addEventListener("submit", (e) => {
   }
 });
 
-// handle register
+/* REGISTER */
 registerContent.addEventListener("submit", (e) => {
   e.preventDefault();
   const inputs = registerContent.querySelectorAll("input");
@@ -260,11 +211,15 @@ registerContent.addEventListener("submit", (e) => {
     !isUserLength3 &&
     !isMatchingPW3
   ) {
+    iconForm.click();
+    let id = 100;
     let user = {
-      id: inputs[0].value,
+      id: id++,
+      user_name: inputs[0].value,
       email: inputs[1].value,
       pw: inputs[2].value,
     };
+    console.log(user);
     let data = registerAccount;
     if (data.length !== 0) {
       let user = localStorage.getItem("registerAccount");

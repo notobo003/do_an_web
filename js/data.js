@@ -1,4 +1,3 @@
-
 var books = [
   {
     id: 1,
@@ -13,9 +12,10 @@ var books = [
       "./images/skill_books/1_2.jpg",
       "./images/skill_books/1_3.jpg",
     ],
+    description:
+      "Ngữ pháp và từ vựng là hai mảng không thể thiếu trong quá trình học ngoại ngữ nói chung và học tiếng Anh nói riêng. Hai phạm trù này sẽ góp phần giúp chúng ta đạt được sự thành thạo về ngôn ngữ. Nếu như ngữ pháp có các quy tắc, có cấu trúc để tuân theo thì từ vựng lại không có bất cứ quy tắc nào",
     price: 85200,
     currentPrice: 10000,
-    description: "",
   },
   {
     id: 2,
@@ -31,6 +31,8 @@ var books = [
     ],
     price: 85200,
     currentPrice: 20000,
+    description:
+      "Ngữ pháp và từ vựng là hai mảng không thể thiếu trong quá trình học ngoại ngữ nói chung và học tiếng Anh nói riêng. Hai phạm trù này sẽ góp phần giúp chúng ta đạt được sự thành thạo về ngôn ngữ. Nếu như ngữ pháp có các quy tắc, có cấu trúc để tuân theo thì từ vựng lại không có bất cứ quy tắc nào",
   },
   {
     id: 3,
@@ -46,6 +48,8 @@ var books = [
     ],
     price: 85200,
     currentPrice: 30000,
+    description:
+      "Ngữ pháp và từ vựng là hai mảng không thể thiếu trong quá trình học ngoại ngữ nói chung và học tiếng Anh nói riêng. Hai phạm trù này sẽ góp phần giúp chúng ta đạt được sự thành thạo về ngôn ngữ. Nếu như ngữ pháp có các quy tắc, có cấu trúc để tuân theo thì từ vựng lại không có bất cứ quy tắc nào",
   },
   {
     id: 4,
@@ -57,6 +61,8 @@ var books = [
     srcImg: ["./images/skill_books/4.jpg"],
     price: 85200,
     currentPrice: 40000,
+    description:
+      "Ngữ pháp và từ vựng là hai mảng không thể thiếu trong quá trình học ngoại ngữ nói chung và học tiếng Anh nói riêng. Hai phạm trù này sẽ góp phần giúp chúng ta đạt được sự thành thạo về ngôn ngữ. Nếu như ngữ pháp có các quy tắc, có cấu trúc để tuân theo thì từ vựng lại không có bất cứ quy tắc nào",
   },
   {
     id: 5,
@@ -68,6 +74,8 @@ var books = [
     srcImg: ["./images/skill_books/5.jpg"],
     price: 85200,
     currentPrice: 50000,
+    description:
+      "Ngữ pháp và từ vựng là hai mảng không thể thiếu trong quá trình học ngoại ngữ nói chung và học tiếng Anh nói riêng. Hai phạm trù này sẽ góp phần giúp chúng ta đạt được sự thành thạo về ngôn ngữ. Nếu như ngữ pháp có các quy tắc, có cấu trúc để tuân theo thì từ vựng lại không có bất cứ quy tắc nào",
   },
   {
     id: 6,
@@ -78,6 +86,8 @@ var books = [
     srcImg: ["./images/skill_books/6.jpg"],
     price: 85200,
     currentPrice: 50000,
+    description:
+      "Ngữ pháp và từ vựng là hai mảng không thể thiếu trong quá trình học ngoại ngữ nói chung và học tiếng Anh nói riêng. Hai phạm trù này sẽ góp phần giúp chúng ta đạt được sự thành thạo về ngôn ngữ. Nếu như ngữ pháp có các quy tắc, có cấu trúc để tuân theo thì từ vựng lại không có bất cứ quy tắc nào",
   },
   {
     id: 7,
@@ -88,7 +98,8 @@ var books = [
     srcImg: ["./images/skill_books/7.jpg"],
     price: 85200,
     currentPrice: 50000,
-    description: "",
+    description:
+      "Ngữ pháp và từ vựng là hai mảng không thể thiếu trong quá trình học ngoại ngữ nói chung và học tiếng Anh nói riêng. Hai phạm trù này sẽ góp phần giúp chúng ta đạt được sự thành thạo về ngôn ngữ. Nếu như ngữ pháp có các quy tắc, có cấu trúc để tuân theo thì từ vựng lại không có bất cứ quy tắc nào",
   },
   {
     id: 8,
@@ -99,6 +110,8 @@ var books = [
     srcImg: ["./images/skill_books/8.jpg"],
     price: 85200,
     currentPrice: 50000,
+    description:
+      "Ngữ pháp và từ vựng là hai mảng không thể thiếu trong quá trình học ngoại ngữ nói chung và học tiếng Anh nói riêng. Hai phạm trù này sẽ góp phần giúp chúng ta đạt được sự thành thạo về ngôn ngữ. Nếu như ngữ pháp có các quy tắc, có cấu trúc để tuân theo thì từ vựng lại không có bất cứ quy tắc nào",
   },
   {
     id: 9,
@@ -110,6 +123,8 @@ var books = [
     srcImg: ["./images/skill_books/9.jpg"],
     price: 85200,
     currentPrice: 50000,
+    description:
+      "Ngữ pháp và từ vựng là hai mảng không thể thiếu trong quá trình học ngoại ngữ nói chung và học tiếng Anh nói riêng. Hai phạm trù này sẽ góp phần giúp chúng ta đạt được sự thành thạo về ngôn ngữ. Nếu như ngữ pháp có các quy tắc, có cấu trúc để tuân theo thì từ vựng lại không có bất cứ quy tắc nào",
   },
   {
     id: 10,
@@ -119,6 +134,8 @@ var books = [
     shortName: "thoi quen cua ke thang",
     srcImg: ["./images/skill_books/10.jpg"],
     price: 85200,
+    description:
+      "Ngữ pháp và từ vựng là hai mảng không thể thiếu trong quá trình học ngoại ngữ nói chung và học tiếng Anh nói riêng. Hai phạm trù này sẽ góp phần giúp chúng ta đạt được sự thành thạo về ngôn ngữ. Nếu như ngữ pháp có các quy tắc, có cấu trúc để tuân theo thì từ vựng lại không có bất cứ quy tắc nào",
     currentPrice: 50000,
   },
   {
@@ -130,6 +147,8 @@ var books = [
     srcImg: ["./images/skill_books/11.jpg"],
     price: 85200,
     currentPrice: 50000,
+    description:
+      "Ngữ pháp và từ vựng là hai mảng không thể thiếu trong quá trình học ngoại ngữ nói chung và học tiếng Anh nói riêng. Hai phạm trù này sẽ góp phần giúp chúng ta đạt được sự thành thạo về ngôn ngữ. Nếu như ngữ pháp có các quy tắc, có cấu trúc để tuân theo thì từ vựng lại không có bất cứ quy tắc nào",
   },
   {
     id: 12,
@@ -140,6 +159,8 @@ var books = [
     srcImg: ["./images/skill_books/12.jpg"],
     price: 85200,
     currentPrice: 50000,
+    description:
+      "Ngữ pháp và từ vựng là hai mảng không thể thiếu trong quá trình học ngoại ngữ nói chung và học tiếng Anh nói riêng. Hai phạm trù này sẽ góp phần giúp chúng ta đạt được sự thành thạo về ngôn ngữ. Nếu như ngữ pháp có các quy tắc, có cấu trúc để tuân theo thì từ vựng lại không có bất cứ quy tắc nào",
   },
   {
     id: 13,
@@ -150,7 +171,8 @@ var books = [
     srcImg: ["./images/skill_books/13.jpg"],
     price: 85200,
     currentPrice: 50000,
-    description: "",
+    description:
+      "Ngữ pháp và từ vựng là hai mảng không thể thiếu trong quá trình học ngoại ngữ nói chung và học tiếng Anh nói riêng. Hai phạm trù này sẽ góp phần giúp chúng ta đạt được sự thành thạo về ngôn ngữ. Nếu như ngữ pháp có các quy tắc, có cấu trúc để tuân theo thì từ vựng lại không có bất cứ quy tắc nào",
   },
   {
     id: 14,
@@ -161,6 +183,8 @@ var books = [
     srcImg: ["./images/skill_books/14.jpg"],
     price: 85200,
     currentPrice: 50000,
+    description:
+      "Ngữ pháp và từ vựng là hai mảng không thể thiếu trong quá trình học ngoại ngữ nói chung và học tiếng Anh nói riêng. Hai phạm trù này sẽ góp phần giúp chúng ta đạt được sự thành thạo về ngôn ngữ. Nếu như ngữ pháp có các quy tắc, có cấu trúc để tuân theo thì từ vựng lại không có bất cứ quy tắc nào",
   },
   {
     id: 15,
@@ -171,6 +195,8 @@ var books = [
     srcImg: ["./images/skill_books/15.jpg"],
     price: 85200,
     currentPrice: 50000,
+    description:
+      "Ngữ pháp và từ vựng là hai mảng không thể thiếu trong quá trình học ngoại ngữ nói chung và học tiếng Anh nói riêng. Hai phạm trù này sẽ góp phần giúp chúng ta đạt được sự thành thạo về ngôn ngữ. Nếu như ngữ pháp có các quy tắc, có cấu trúc để tuân theo thì từ vựng lại không có bất cứ quy tắc nào",
   },
   {
     id: 16,
@@ -181,6 +207,8 @@ var books = [
     srcImg: ["./images/skill_books/16.jpg", "./images/skill_books/1.jpg"],
     price: 85200,
     currentPrice: 50000,
+    description:
+      "Ngữ pháp và từ vựng là hai mảng không thể thiếu trong quá trình học ngoại ngữ nói chung và học tiếng Anh nói riêng. Hai phạm trù này sẽ góp phần giúp chúng ta đạt được sự thành thạo về ngôn ngữ. Nếu như ngữ pháp có các quy tắc, có cấu trúc để tuân theo thì từ vựng lại không có bất cứ quy tắc nào",
   },
   {
     id: 101,
@@ -775,3 +803,13 @@ var ordersUsers = [
     isConfirm: false,
   },
 ];
+
+function numberWithCommas(x) {
+  var parts = x.toString().split(".");
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  let result = parts.join(",");
+  return result;
+}
+function numbertoVND(x) {
+  return numberWithCommas(x) + " đ";
+}

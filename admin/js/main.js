@@ -63,7 +63,7 @@ function render(arr, eTbody) {
     <img src=".${item.srcImg[0]}" alt=""></td>
     <td>${item.title}</td>
     <td>${item.description}</td>
-    <td>${item.currentPrice}</td>
+    <td>${numbertoVND(item.currentPrice)}</td>
     <td>
         <div class="toolkit">
             <div class="edit" onclick="editById(${item.id})">
@@ -115,7 +115,7 @@ function renderOrders(arr, eTbody) {
       <td>${item.details}</td>
       <td>${item.address_delivery}</td>
       <td>${item.order_date}</td>
-      <td>${item.total_price}</td>
+      <td>${numbertoVND(item.total_price)}</td>
       <td> <input type="checkbox"></td>
       
   </tr>
@@ -159,12 +159,41 @@ function deleteById(id) {
   render(books, categoryTbody);
   console.log(id);
 }
-function renderEdit() {}
+const containerEdit = document.querySelector(".container__edit");
+const containerEditTable = document.querySelector(".container__edit table");
+
 function editById(id) {
+  const containerEditOverlay = containerEdit.querySelector(".overlay");
+  containerEditOverlay.addEventListener("click", () => {
+    containerEdit.classList.remove("show");
+  });
+  containerEdit.classList.add("show");
   // renderOrders(or, ordersTbody);
   let item = books.find((item) => {
     return item.id == id;
   });
+  let htmls = `
+  <thead>
+  <tr>
+    <td colspan="2">${item.title}</td>
+  </tr>
+  </thead>        
+  <tbody>
+    <tr>
+    <td>Tên: </td>
+    <td><input type="text" value="${item.title}"></td>
+  </tr>
+  <tr>
+    <td>Mô tả: </td>
+    <td><input type="text" value="${item.description}"></td>
+  </tr>
+  <tr>
+    <td>Giá: </td>
+    <td><input type="text" value="${item.currentPrice}"></td>
+  </tr>
+  </tbody>
+  `;
+  containerEditTable.innerHTML = htmls;
   console.log(item);
 
   // render(books, categoryTbody);
