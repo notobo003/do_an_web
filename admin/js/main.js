@@ -142,6 +142,7 @@ logoutBtn.addEventListener("click", () => {
 let user = JSON.parse(localStorage.getItem("userLoginCurrent"));
 // console.log(user);
 
+<<<<<<< Updated upstream
 const edit = document.querySelectorAll(".toolkit .edit");
 const deleteProduct = document.querySelectorAll(".toolkit .delete");
 /* console.log(edit, deleteProduct);
@@ -198,3 +199,8 @@ function editById(id) {
 
   // render(books, categoryTbody);
 }
+=======
+const toolkit = document.querySelectorAll(".toolkit .edit");
+console.log(toolkit);
+
+>>>>>>> Stashed changes
